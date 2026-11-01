@@ -1,0 +1,111 @@
+.badge {
+  position: fixed;
+  right: var(--sp-4);
+  bottom: var(--sp-4);
+  z-index: 55;
+
+  width: 74px;
+  height: 74px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+
+  color: var(--ink);
+
+  
+  opacity: 0;
+  transform: scale(.85);
+  pointer-events: none;
+  transition:
+    transform var(--dur-2) var(--ease-soft),
+    opacity var(--dur-2) var(--ease-soft);
+}
+body.is-loaded .badge {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.badge__ring {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.badge__ring svg {
+  width: 100%;
+  height: 100%;
+  
+  overflow: hidden;
+  animation: badge-spin 18s linear infinite;
+}
+.badge:hover .badge__ring svg { animation-duration: 7s; }
+
+.badge__text {
+  font-family: var(--font-cond);
+  font-weight: 600;
+  
+  font-size: 8.6px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  fill: var(--muted);
+  transition: fill var(--dur-2) var(--ease-soft);
+}
+.badge:hover .badge__text,
+.badge:focus-visible .badge__text { fill: var(--ink); }
+
+
+.badge__star {
+  position: relative;
+  z-index: 1;
+  width: 46%;
+  height: 46%;
+  display: grid;
+  place-items: center;
+
+  border-radius: var(--r-pill);
+  
+  background: var(--accent-solid);
+  color: var(--accent-solid-ink);
+  font-size: 16px;
+  line-height: 1;
+
+  box-shadow: 0 0 0 6px color-mix(in oklab, var(--accent) 14%, transparent);
+  transition:
+    transform var(--dur-2) var(--ease-soft),
+    box-shadow var(--dur-2) var(--ease-soft);
+}
+.badge:hover .badge__star,
+.badge:focus-visible .badge__star {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 10px color-mix(in oklab, var(--accent) 22%, transparent);
+}
+
+@keyframes badge-spin { to { transform: rotate(360deg); } }
+
+
+@media (max-width: 719px) {
+  .badge { display: none; }
+}
+
+@media (min-width: 720px) {
+  .badge {
+    
+    right: clamp(32px, 5vw, 56px);
+    bottom: clamp(28px, 5vw, 50px);
+    width: clamp(90px, 9vw, 116px);
+    height: clamp(90px, 9vw, 116px);
+  }
+  .badge__star { font-size: 20px; }
+}
+
+
+@media (max-height: 520px) {
+  .badge { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge { opacity: 1; transform: none; pointer-events: auto; }
+  .badge__ring svg { animation: none; }
+  .badge:hover .badge__star,
+  .badge:focus-visible .badge__star { transform: none; }
+}
