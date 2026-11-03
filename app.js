@@ -4,145 +4,29 @@ const SITE_CONFIG = {
   // Ailleurs (Vercel, etc.), coller ici l'adresse d'un service de formulaire.
   formEndpoint: "",
   contactEmail: "hello@pawadstudio.com",
+  // Lien de paiement de l'acompte. Dès qu'il est rempli, le visiteur paie juste après le formulaire.
+  // Laisser vide tant qu'aucun moyen de paiement n'est vérifié : le lien part alors par email.
+  checkoutUrl: "",
 };
 
 const FAQ = [
-  ["Do we need to get on a call?", "No. Everything happens in writing, from the brief to the final files. You get clear answers you can come back to, and you don't need to book a meeting."],
+  ["Do we need to get on a call?", "No. Everything happens in writing, from your first message to the final files."],
+  ["How do I pay?", "You get a secure payment link. You pay $245 to start and $245 after your preview. If you prefer payment protection, ask us about running the project through Upwork."],
+  ["What if I don't like the ads?", "You see a preview before the second payment and get one round of changes. If we miss the 7-day deadline, you can ask for your deposit back."],
+  ["What do you need from me?", "Real photos or videos of your product, your logo and colors, and proof for any claim you want to use. Need new footage? We can add a real creator, quoted separately."],
   ["Do you use AI?", "Yes. We use AI tools for scripts, background scenes, extra shots and variations. A person checks every ad before you see it. Meta may show an \"AI info\" label on some ads."],
   ["Will these ads increase my sales?", "Nobody can honestly promise that. We promise on-time delivery and clear ideas to test. Your results also depend on your product, offer, website and budget."],
   ["What if I already have an editor or an agency?", "That works well. We can bring new angles and extra volume, and your team can launch or adapt the files."],
-  ["How does payment work?", "After you accept the proposal, we send an invoice by email. You pay 50% to start and 50% before receiving the final files, by bank transfer. If you prefer payment protection, ask us about running the project through Upwork."],
-  ["What happens if you miss the deadline?", "The 7 days start when we have your deposit and complete brief. If we miss the deadline, you can ask for your deposit back."],
   ["Who can use the finished ads?", "Once you've paid in full, you can use them commercially for your brand. Because AI tools are involved, we can't guarantee that no similar image will ever exist. Our terms explain the details."],
   ["Which brands is this not for?", "We don't take dog food, supplements or anything that makes health claims. We focus on accessories such as harnesses, collars, beds, coats and travel gear."],
 ];
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
 
-/* Préchargeur : le contenu reste accessible même si l'animation échoue. */
 function markLoaded() {
   document.body.classList.add("is-loaded");
   document.body.classList.remove("is-preloading");
   document.querySelector(".hero")?.classList.replace("hero--pre", "hero--ready");
-}
-
-function initPreloader() {
-  const panel = document.querySelector(".preloader");
-  if (!panel) return markLoaded();
-  const remove = () => panel.remove();
-  if (prefersReducedMotion || document.hidden) {
-    markLoaded();
-    return remove();
-  }
-
-  document.body.classList.add("is-preloading");
-  const count = panel.querySelector(".preloader__count");
-  const start = performance.now();
-  const COUNT_MS = 1200;
-  const EXIT_MS = 800;
-  let done = false;
-
-  const leave = () => {
-    if (done) return;
-    done = true;
-    markLoaded();
-    panel.classList.add("preloader--out");
-    setTimeout(remove, EXIT_MS);
-  };
-
-  const tick = (now) => {
-    if (done) return;
-    const linear = Math.min(1, (now - start) / COUNT_MS);
-    const eased = linear >= 1 ? 1 : 1 - Math.pow(2, -10 * linear);
-    const value = Math.round(eased * 100);
-    panel.style.setProperty("--preloader-p", value / 100);
-    count.textContent = String(value).padStart(3, "0");
-    if (linear < 1) requestAnimationFrame(tick);
-    else setTimeout(leave, 140);
-  };
-  requestAnimationFrame(tick);
-  setTimeout(leave, 2200);
-}
-
-/* Thème clair ou sombre */
-function initTheme() {
-  const root = document.documentElement;
-  const button = document.getElementById("theme-toggle");
-  if (!button) return;
-  const sync = () => {
-    const theme = root.getAttribute("data-theme") || "dark";
-    button.dataset.themeState = theme;
-    button.setAttribute("aria-checked", String(theme === "light"));
-    button.setAttribute("aria-label", theme === "light" ? "Switch to dark theme" : "Switch to light theme");
-    const background = getComputedStyle(root).getPropertyValue("--bg").trim();
-    if (background) document.querySelector('meta[name="theme-color"]')?.setAttribute("content", background);
-  };
-  sync();
-  button.addEventListener("click", () => {
-    const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-    root.setAttribute("data-theme", next);
-    root.style.colorScheme = next;
-    try {
-      localStorage.setItem("paw-theme", next);
-    } catch {
-      /* Le choix ne sera simplement pas mémorisé. */
-    }
-    sync();
-  });
-}
-
-/* Curseur : base.css masque le curseur système sur pointeur fin. */
-function initCursor() {
-  if (!finePointer.matches) return;
-  const cursor = document.createElement("span");
-  cursor.className = "cursor";
-  cursor.setAttribute("aria-hidden", "true");
-  cursor.innerHTML = '<span class="cursor__ring"></span><span class="cursor__dot"></span>';
-  document.body.append(cursor);
-
-  const LERP = prefersReducedMotion ? 1 : 0.35;
-  let targetX = -100;
-  let targetY = -100;
-  let x = -100;
-  let y = -100;
-  let running = false;
-  let visible = false;
-
-  const loop = () => {
-    x += (targetX - x) * LERP;
-    y += (targetY - y) * LERP;
-    cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-    if (Math.abs(targetX - x) < 0.1 && Math.abs(targetY - y) < 0.1) {
-      running = false;
-      return;
-    }
-    requestAnimationFrame(loop);
-  };
-
-  window.addEventListener("pointermove", (event) => {
-    targetX = event.clientX;
-    targetY = event.clientY;
-    if (!visible) {
-      x = targetX;
-      y = targetY;
-      visible = true;
-      cursor.classList.add("is-visible");
-    }
-    const element = event.target instanceof Element ? event.target : null;
-    cursor.classList.toggle("is-hover", Boolean(element?.closest('a[href], button, [data-cursor], [role="button"], label')));
-    cursor.classList.toggle("is-text", Boolean(element?.closest("input, textarea, select")));
-    if (!running) {
-      running = true;
-      requestAnimationFrame(loop);
-    }
-  }, { passive: true });
-  window.addEventListener("pointerdown", () => cursor.classList.add("is-down"), { passive: true });
-  window.addEventListener("pointerup", () => cursor.classList.remove("is-down"), { passive: true });
-  window.addEventListener("blur", () => {
-    visible = false;
-    cursor.classList.remove("is-visible");
-  });
 }
 
 /* En-tête : progression, lien actif et menu mobile */
@@ -474,7 +358,7 @@ function initStickyBar() {
       link.tabIndex = -1;
     }
   }, { threshold: 0.08 });
-  ["accueil", "pricing", "contact"].forEach((id) => observer.observe(document.getElementById(id)));
+  ["accueil", "pricing", "start"].forEach((id) => observer.observe(document.getElementById(id)));
 }
 
 /* Vidéos de démonstration : lecture sans le son, seulement quand elles sont à l'écran */
@@ -517,20 +401,13 @@ function initDemoVideos() {
   });
 }
 
-/* Badge rotatif : seulement sur le hero, pour ne jamais masquer un bouton ou un champ */
-function initBadge() {
-  const badge = document.querySelector(".badge");
-  if (!badge || !("IntersectionObserver" in window)) return;
-  new IntersectionObserver(([entry]) => {
-    badge.toggleAttribute("data-off", !entry.isIntersecting);
-    badge.tabIndex = entry.isIntersecting ? 0 : -1;
-  }, { threshold: 0.3 }).observe(document.getElementById("accueil"));
-}
-
 /* Formulaire de brief */
 function initBriefForm() {
   const form = document.getElementById("brief-form");
   if (!form) return;
+  if (SITE_CONFIG.checkoutUrl) {
+    document.getElementById("brief-next").textContent = "No payment on this page. Next, you pay your $245 deposit by secure checkout.";
+  }
   const statusBox = document.getElementById("form-status");
   const submitButton = document.getElementById("brief-submit");
   const submitText = document.getElementById("brief-submit-label");
@@ -541,7 +418,7 @@ function initBriefForm() {
     const value = field.value.trim();
     if (!value) return false;
     if (field.id === "email") return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
-    if (field.id === "website") return /^(https?:\/\/)?[^\s.]+(\.[^\s.]+)+$/i.test(value);
+    if (field.id === "product") return /^(https?:\/\/)?[^\s.]+(\.[^\s]+)+$/i.test(value);
     return true;
   };
 
@@ -568,7 +445,7 @@ function initBriefForm() {
 
   const setSending = (isSending) => {
     submitButton.disabled = isSending;
-    submitText.textContent = isSending ? "Sending your brief..." : submitLabel;
+    submitText.textContent = isSending ? "Reserving your pilot..." : submitLabel;
   };
 
   const renderStatus = (kind, title, message) => {
@@ -613,10 +490,19 @@ function initBriefForm() {
 
       form.reset();
       form.querySelectorAll(".is-valid").forEach((field) => field.classList.remove("is-valid"));
-      renderStatus("success", "Your brief is on its way", "We'll reply by email within 2 business days. Please check your spam folder if you don't see it.");
+      if (SITE_CONFIG.checkoutUrl) {
+        renderStatus("success", "One last step", "Pay the $245 deposit to lock your spot. Then we'll ask for your photos by email.");
+        const pay = document.createElement("a");
+        pay.className = "hero__cta hero__cta--solid brief__pay";
+        pay.href = SITE_CONFIG.checkoutUrl;
+        pay.textContent = "Pay the $245 deposit";
+        statusBox.append(pay);
+      } else {
+        renderStatus("success", "Your spot is on hold", "Your secure $245 payment link is on its way by email, within 1 business day. Please check your spam folder if you don't see it.");
+      }
     } catch {
       window.openEmailDraft(data);
-      renderStatus("fallback", "Please send your brief by email", `We couldn't send the form, so we opened an email draft with your answers. If nothing opened, write to ${SITE_CONFIG.contactEmail}.`);
+      renderStatus("fallback", "Please send your request by email", `We couldn't send the form, so we opened an email draft with your answers. If nothing opened, write to ${SITE_CONFIG.contactEmail}.`);
     } finally {
       setSending(false);
     }
@@ -625,15 +511,12 @@ function initBriefForm() {
 
 window.openEmailDraft = (data) => {
   const lines = [
-    `Name: ${data.get("name")}`,
+    `Plan: ${data.get("plan")}`,
     `Email: ${data.get("email")}`,
-    `Brand: ${data.get("brand")}`,
-    `Website: ${data.get("website")}`,
     `Product: ${data.get("product")}`,
-    `Monthly Meta ad budget: ${data.get("spend")}`,
-    `Goal: ${data.get("goal") || "Not specified"}`,
+    `Note: ${data.get("note") || "None"}`,
   ];
-  const subject = encodeURIComponent(`New brief: ${data.get("brand")}`);
+  const subject = encodeURIComponent(`Pilot request: ${data.get("product")}`);
   const body = encodeURIComponent(lines.join("\n"));
   window.location.href = `mailto:${SITE_CONFIG.contactEmail}?subject=${subject}&body=${body}`;
 };
@@ -647,16 +530,13 @@ function initFooter() {
 }
 
 initFaq();
-initPreloader();
-initTheme();
-initCursor();
+requestAnimationFrame(markLoaded);
 initHeader();
 initReveals();
 initStages();
 initServiceCards();
 initContactTitle();
 initStickyBar();
-initBadge();
 initDemoVideos();
 initBriefForm();
 initFooter();

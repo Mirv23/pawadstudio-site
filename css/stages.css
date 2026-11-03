@@ -18,14 +18,6 @@
 }
 
 
-:root[data-theme="light"] .stages {
-  --stages-raise: color-mix(in oklab, var(--surface) 92%, transparent);
-  --stages-raise-hover: color-mix(in oklab, var(--surface) 62%, transparent);
-  --stages-card-bg: color-mix(in oklab, var(--surface) 94%, transparent);
-  --stages-card-wash: color-mix(in oklab, var(--accent) 6%, transparent);
-  --stages-aura: color-mix(in oklab, var(--accent) 4%, transparent);
-  --stages-node-ring: color-mix(in oklab, var(--accent) 14%, transparent);
-}
 
 
 .stages::before {
@@ -216,11 +208,6 @@
 .stages__item[data-stage="5"] { --stage-hue: var(--accent-3); }
 
 
-:root[data-theme="light"] .stages__item {
-  --stage-wash: color-mix(in oklab, var(--stage-hue) 6%, transparent);
-  --stage-soft: color-mix(in oklab, var(--stage-hue) 14%, transparent);
-  --stage-glow: color-mix(in oklab, var(--stage-hue) 22%, transparent);
-}
 
 
 .stages__item::before {
@@ -567,13 +554,6 @@
   opacity: 1;
   transform: none;
   transition-delay: calc(.26s + var(--tool-i, 0) * .08s);
-}
-.stages__tool::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: var(--r-pill);
-  background: var(--stage-hue);
 }
 
 

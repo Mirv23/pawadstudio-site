@@ -125,70 +125,9 @@
 }
 
 
-:root[data-theme="light"] {
-  color-scheme: light;
-
-  
-  --bg:        #F1EEE2;   
-  --bg-2:      #E9E5D7;   
-  --surface:   #FCFBF6;   
-  --surface-2: #E4E0D1;   
-
-  --ink:       #14150F;   
-  --ink-2:     #3C3E35;   
-  --muted:     #5F6154;   
-
-  
-  --ink-display: #0A0B06;
-
-  --line:        rgba(20, 21, 15, .13);  
-  --line-strong: rgba(20, 21, 15, .24);  
-  --frame-line:  rgba(20, 21, 15, .30);  
-  --line-ui:     rgba(20, 21, 15, .52);  
-
-  --accent:     #4E6908;   
-  --accent-ink: #FBFBF6;   
-  --accent-2:   #5B4BD6;   
-  --accent-3:   #A83C10;   
-  --glow:       rgba(78, 105, 8, .20);
-  --danger:     #B3261E;
-
-  
-  --accent-solid:     #C6FF4A;
-  --accent-solid-ink: #14150F;   
-
-  
-  --shadow-1: 0 1px 2px rgba(30, 28, 18, .10),
-              0 12px 28px rgba(30, 28, 18, .14);
-  --shadow-2: 0 2px 6px rgba(30, 28, 18, .12),
-              0 30px 70px rgba(30, 28, 18, .20);
-  --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--accent) 24%, transparent),
-                 0 18px 50px -14px var(--glow);
-  --glass:    rgba(252, 251, 246, .70);
-
-  --mesh-1: color-mix(in oklab, var(--accent)   10%, transparent);
-  --mesh-2: color-mix(in oklab, var(--accent-2) 10%, transparent);
-  --mesh-3: color-mix(in oklab, var(--accent-3)  7%, transparent);
-
-  --grain-opacity: .05;
-  --grain-blend: multiply;
-}
 
 
-:root.theme-ready,
-:root.theme-ready body,
-:root.theme-ready .theme-surface {
-  transition:
-    background-color var(--dur-2) var(--ease-soft),
-    color var(--dur-2) var(--ease-soft),
-    border-color var(--dur-2) var(--ease-soft);
-}
 
-@media (prefers-reduced-motion: reduce) {
-  :root.theme-ready,
-  :root.theme-ready body,
-  :root.theme-ready .theme-surface { transition: none; }
-}
 
 
 @media (min-width: 720px) {

@@ -23,16 +23,6 @@
 }
 
 
-:root[data-theme="light"] .services {
-  --svc-halo: color-mix(in oklab, var(--accent) 12%, transparent);
-  --svc-halo-2: color-mix(in oklab, var(--accent-2) 9%, transparent);
-  --svc-edge: color-mix(in oklab, var(--accent) 42%, transparent);
-  --svc-edge-soft: color-mix(in oklab, var(--accent) 14%, transparent);
-  --svc-card-bg: color-mix(in oklab, var(--surface) 88%, transparent);
-  --svc-card-bg-hover: var(--surface);
-  --svc-thread: color-mix(in oklab, var(--accent) 34%, transparent);
-  --svc-card-shadow: 0 20px 50px -28px var(--glow);
-}
 
 
 .services::before {

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark" style="color-scheme: dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,13 +10,11 @@
   <meta property="og:description" content="New ad angles for your dog brand, ready to test in 7 days. One fixed price, no calls needed.">
   <meta property="og:type" content="website">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <script>!function(){var d=document.documentElement;try{var s=null;try{s=localStorage.getItem("paw-theme")}catch(e){}var t=s==="light"||s==="dark"?s:(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");d.setAttribute("data-theme",t);d.style.colorScheme=t;requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add("theme-ready")})})}catch(e){d.setAttribute("data-theme","dark")}}();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/controls.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/services.css">
@@ -24,19 +22,10 @@
   <link rel="stylesheet" href="css/stages.css">
   <link rel="stylesheet" href="css/contact.css">
   <link rel="stylesheet" href="css/fx.css">
-  <link rel="stylesheet" href="css/badge.css">
   <link rel="stylesheet" href="css/site.css">
-  <noscript><style>.preloader{display:none!important}.hero--pre .hero__anim{opacity:1!important;transform:none!important}.contact--pre .contact__anim{opacity:1!important;transform:none!important}.fsec [data-fx],.services [data-reveal],.services__card{opacity:1!important;transform:none!important;clip-path:none!important}@media (hover:hover) and (pointer:fine){body,body a,body button,body [data-cursor]{cursor:auto}body a,body button{cursor:pointer}}</style></noscript>
+  <noscript><style>.hero--pre .hero__anim{opacity:1!important;transform:none!important}.contact--pre .contact__anim{opacity:1!important;transform:none!important}.fsec [data-fx],.services [data-reveal],.services__card{opacity:1!important;transform:none!important;clip-path:none!important}</style></noscript>
 </head>
-<body>
-  <div class="preloader" aria-hidden="true" role="presentation">
-    <div class="preloader__inner">
-      <p class="preloader__title"><span class="preloader__name">Paw Ad Studio</span><span class="preloader__label">Loading your next ads</span></p>
-      <div class="preloader__meter"><span class="preloader__bar"></span></div>
-      <p class="preloader__counter"><span class="preloader__count">000</span><span class="preloader__pct">%</span></p>
-    </div>
-  </div>
-
+<body class="cursor-auto">
   <a class="skip-link" href="#top">Skip to content</a>
 
   <div class="fx" aria-hidden="true">
@@ -53,7 +42,6 @@
     <div class="hdr__progress" aria-hidden="true"><span class="hdr__progressBar"></span></div>
     <div class="hdr__inner">
       <a href="#top" class="hdr__logo" aria-label="Paw Ad Studio, back to top">
-        <span class="hdr__logoDot" aria-hidden="true"></span>
         <span class="hdr__logoText" aria-hidden="true">Paw Ad Studio</span>
         <span class="hdr__logoShort" aria-hidden="true">Paw Ad</span>
       </a>
@@ -64,19 +52,11 @@
         <a href="#faq" class="hdr__link" data-spy="faq"><span class="hdr__linkText">FAQ</span></a>
       </nav>
       <div class="hdr__controls">
-        <a class="hdr__cv" href="#contact" aria-label="Send your brief" title="Send your brief">
+        <a class="hdr__cv" href="#start" aria-label="Start the pilot" title="Start the pilot">
           <svg class="hdr__cvIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-          <span class="hdr__cvFull" aria-hidden="true">Send your brief</span>
-          <span class="hdr__cvShort" aria-hidden="true">Brief</span>
+          <span class="hdr__cvFull" aria-hidden="true">Start the pilot</span>
+          <span class="hdr__cvShort" aria-hidden="true">Start</span>
         </a>
-        <div class="hdr__settings">
-          <button type="button" role="switch" class="tt" id="theme-toggle" aria-checked="false" aria-label="Switch color theme" title="Switch color theme">
-            <span class="tt__icons" aria-hidden="true">
-              <svg class="tt__icon tt__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2"/><g class="tt__rays"><path d="M12 2.4v2.4"/><path d="M12 19.2v2.4"/><path d="M2.4 12h2.4"/><path d="M19.2 12h2.4"/><path d="M5.2 5.2l1.7 1.7"/><path d="M17.1 17.1l1.7 1.7"/><path d="M18.8 5.2l-1.7 1.7"/><path d="M6.9 17.1l-1.7 1.7"/></g></svg>
-              <svg class="tt__icon tt__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.2 14.4A8.4 8.4 0 0 1 9.6 3.8a8.4 8.4 0 1 0 10.6 10.6Z"/></svg>
-            </span>
-          </button>
-        </div>
         <button type="button" class="hdr__burger" id="burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
           <span class="hdr__burgerBox" aria-hidden="true"><span></span><span></span></span>
         </button>
@@ -90,7 +70,7 @@
           <a href="#process" class="hdr-panel__link"><span class="hdr-panel__index" aria-hidden="true">02</span><span class="hdr__linkText">How it works</span></a>
           <a href="#pricing" class="hdr-panel__link"><span class="hdr-panel__index" aria-hidden="true">03</span><span class="hdr__linkText">Pricing</span></a>
           <a href="#faq" class="hdr-panel__link"><span class="hdr-panel__index" aria-hidden="true">04</span><span class="hdr__linkText">FAQ</span></a>
-          <a href="#contact" class="hdr-panel__link"><span class="hdr-panel__index" aria-hidden="true">05</span><span class="hdr__linkText">Send your brief</span></a>
+          <a href="#start" class="hdr-panel__link"><span class="hdr-panel__index" aria-hidden="true">05</span><span class="hdr__linkText">Start the pilot</span></a>
         </nav>
       </div>
     </div>
@@ -101,7 +81,7 @@
       <div class="hero__inner container">
         <div class="hero__head">
           <p class="hero__kicker hero__anim label"><span class="hero__kickerRule" aria-hidden="true"></span><em class="hero__kickerText">Meta ad packs for dog brands</em><span class="hero__kickerRule" aria-hidden="true"></span></p>
-          <p class="hero__available hero__anim"><span class="hero__dot" aria-hidden="true"></span><span class="hero__availableText">Pilot spots open</span></p>
+          <p class="hero__available hero__anim"><span class="hero__availableText">Pilot spots open</span></p>
         </div>
 
         <h1 class="hero__title display">
@@ -111,39 +91,35 @@
 
         <p class="hero__tagline hero__anim">Short videos and images for your dog brand, ready to test on Meta. One fixed price, handled entirely in writing.</p>
 
+
+        <div class="hero__actions hero__anim">
+          <a class="hero__cta hero__cta--solid" href="#start">
+            <span class="hero__ctaLabel">Start the $490 pilot</span>
+            <span class="hero__ctaIcon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" focusable="false"><path d="M5 12h13m0 0-5-5m5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+          <a class="hero__cta hero__cta--ghost" href="#concepts">
+            <span class="hero__ctaLabel">Watch the ads</span>
+            <span class="hero__ctaIcon hero__ctaIcon--down" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" focusable="false"><path d="M12 5v14m0 0 5-5m-5 5-5-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+        </div>
+        <p class="hero__price hero__anim">$490 fixed price. No calls. AI-assisted.</p>
+        <p class="hero__includes hero__anim">You get 6 short videos, 6 static images, ad copy and a test plan.</p>
+
         <figure class="hero__media hero__anim">
           <span class="hero__halo" aria-hidden="true"></span>
           <div class="hero__frame">
             <div class="adwall">
-              <article class="ad"><video src="assets/demo-1.mp4" poster="assets/demo-1.jpg" muted loop playsinline preload="none" aria-label="Concept ad for a fictional brand. Hook: check behind your dog's front legs, right now. A golden retriever runs and shakes while the voice-over explains that soft padded mesh stays put. It ends with an add-to-cart animation."></video></article>
-              <article class="ad ad--side"><video src="assets/demo-2.mp4" poster="assets/demo-2.jpg" muted loop playsinline preload="none" aria-label="Concept ad for a fictional brand. Hook: stop blaming your dog for pulling. The voice-over compares a back clip with a front clip on the chest, then says same dog, same street, a whole different walk. It ends with a size picker."></video></article>
-              <article class="ad ad--side"><video src="assets/demo-3.mp4" poster="assets/demo-3.jpg" muted loop playsinline preload="none" aria-label="Concept ad for a fictional brand. Hook: he waits 9 hours for this. A golden retriever sleeps, hears the keys, waits at the door and trots through the evening. It ends on a phone lock screen at 6:02."></video></article>
-              <button type="button" class="adwall__pause" id="demo-pause" aria-pressed="false" aria-label="Pause the videos" data-cursor>
+              <article class="ad"><video src="assets/demo-6.mp4" poster="assets/demo-6.jpg" muted loop playsinline preload="none" aria-label="Concept ad for a fictional brand. Hook: POV, it&#x27;s raining and he said no. A stubborn English bulldog refuses to go out, then struts through the rain in a yellow coat. It ends on a phone rain alert."></video></article>
+              <article class="ad ad--side"><video src="assets/demo-2.mp4" poster="assets/demo-2.jpg" muted loop playsinline preload="none" aria-label="Concept ad for a fictional brand. Hook: stop blaming your dog for pulling. It compares a back clip with a front clip on the chest. It ends with a size picker."></video></article>
+              <article class="ad ad--side"><video src="assets/demo-4.mp4" poster="assets/demo-4.jpg" muted loop playsinline preload="none" aria-label="Concept ad for a fictional brand. Hook: watch the water, it doesn&#x27;t get in. Rain beads on a yellow dog raincoat, then a border collie trots through the rain and shakes it off. It ends on a product card and a buy button."></video></article>
+              <button type="button" class="adwall__pause" id="demo-pause" aria-pressed="false" aria-label="Pause the videos">
                 <svg class="adwall__icon adwall__icon--pause" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M8 5v14M16 5v14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
                 <svg class="adwall__icon adwall__icon--play" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M8 5.5v13l10-6.5Z" fill="currentColor"/></svg>
               </button>
             </div>
           </div>
-          <figcaption class="hero__caption">Concept ads for a fictional brand · Made with AI</figcaption>
+          <figcaption class="hero__caption">Concept ads for a fictional brand, made with AI</figcaption>
         </figure>
-
-        <div class="hero__actions hero__anim">
-          <a class="hero__cta hero__cta--solid" href="#contact" data-cursor>
-            <span class="hero__ctaLabel">Start the $490 pilot</span>
-            <span class="hero__ctaIcon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" focusable="false"><path d="M5 12h13m0 0-5-5m5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-          <a class="hero__cta hero__cta--ghost" href="#process" data-cursor>
-            <span class="hero__ctaLabel">See how it works</span>
-            <span class="hero__ctaIcon hero__ctaIcon--down" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" focusable="false"><path d="M12 5v14m0 0 5-5m-5 5-5-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-        </div>
-        <p class="hero__price hero__anim">$490 fixed price · No calls · AI-assisted</p>
-        <ul class="hero__skills hero__anim" aria-label="What each pack includes">
-          <li class="hero__skill">Short videos</li>
-          <li class="hero__skill">Static images</li>
-          <li class="hero__skill">Ad copy</li>
-          <li class="hero__skill">Test plan</li>
-        </ul>
       </div>
     </section>
 
@@ -156,7 +132,7 @@
         </header>
         <ul class="services__grid">
           <li class="services__cell" style="--i:0">
-            <article class="services__card theme-surface" data-cursor data-reveal>
+            <article class="services__card theme-surface" data-reveal>
               <div class="services__card-top">
                 <span class="services__icon"><svg class="services__ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="6" y="11" width="36" height="26" rx="3"/><path class="services__ico-core" d="m21 18 9 6-9 6Z"/></svg></span>
                 <span class="services__num" aria-hidden="true">01</span>
@@ -166,7 +142,7 @@
             </article>
           </li>
           <li class="services__cell" style="--i:1">
-            <article class="services__card theme-surface" data-cursor data-reveal>
+            <article class="services__card theme-surface" data-reveal>
               <div class="services__card-top">
                 <span class="services__icon"><svg class="services__ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10v28h36"/><path class="services__ico-core" d="m12 17 9 5 7 9 10 3"/></svg></span>
                 <span class="services__num" aria-hidden="true">02</span>
@@ -176,7 +152,7 @@
             </article>
           </li>
           <li class="services__cell" style="--i:2">
-            <article class="services__card theme-surface" data-cursor data-reveal>
+            <article class="services__card theme-surface" data-reveal>
               <div class="services__card-top">
                 <span class="services__icon"><svg class="services__ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="17"/><path class="services__ico-core" d="M24 13v11l7 5"/></svg></span>
                 <span class="services__num" aria-hidden="true">03</span>
@@ -186,9 +162,9 @@
             </article>
           </li>
           <li class="services__cell" style="--i:3">
-            <article class="services__card theme-surface" data-cursor data-reveal>
+            <article class="services__card theme-surface" data-reveal>
               <div class="services__card-top">
-                <span class="services__icon"><svg class="services__ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6l4.5 13.5L42 24l-13.5 4.5L24 42l-4.5-13.5L6 24l13.5-4.5Z"/></svg></span>
+                <span class="services__icon"><svg class="services__ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="17"/><path class="services__ico-core" d="m30.5 17.5-4 9-9 4 4-9Z"/></svg></span>
                 <span class="services__num" aria-hidden="true">04</span>
               </div>
               <h3 class="services__card-title display">AI tools need direction</h3>
@@ -203,9 +179,9 @@
       <div class="container fsec__inner">
         <header class="fsec__head" data-fx>
           <p class="fsec__kicker label"><span class="fsec__rule" aria-hidden="true"></span><span>Examples</span></p>
-          <h2 class="fsec__title display" id="concepts-title">One product. Many angles.</h2>
+          <h2 class="fsec__title display" id="concepts-title">Many products. Many angles.</h2>
         </header>
-        <p class="concepts__intro" data-fx>Three concept ads for a made-up brand, Sample Pup Co. It's not a client: the same product, shown three ways. We made them with AI from public-domain photos, then edited and checked them in our studio. Turn on the sound to hear the voice-over and sound effects.</p>
+        <p class="concepts__intro" data-fx>Concept ads for a made-up brand, Sample Pup Co., not a client. Six videos and 24 static ads across eight products. Made with AI and public-domain photos, then edited and checked in our studio. Turn the sound on.</p>
         <div class="concepts__row">
           <article class="concept" data-fx style="--fx-i:1">
             <article class="ad"><video src="assets/demo-1.mp4" poster="assets/demo-1.jpg" muted loop playsinline preload="none" controls aria-label="Concept ad for a fictional brand. Hook: check behind your dog's front legs, right now. A golden retriever runs and shakes while the voice-over explains that soft padded mesh stays put. It ends with an add-to-cart animation."></video></article>
@@ -225,6 +201,66 @@
             <h3 class="concept__title display">Short story</h3>
             <p class="concept__text">Builds an emotional moment first and brings the product in late. Ends on a phone lock screen.</p>
           </article>
+          <article class="concept" data-fx style="--fx-i:4">
+            <article class="ad"><video src="assets/demo-4.mp4" poster="assets/demo-4.jpg" muted loop playsinline preload="none" controls aria-label="Concept ad for a fictional brand. Hook: watch the water, it doesn&#x27;t get in. Rain beads on a yellow dog raincoat, then a border collie trots through the rain and shakes it off. It ends on a product card and a buy button."></video></article>
+            <p class="concept__num label">Angle 04</p>
+            <h3 class="concept__title display">Proof on screen</h3>
+            <p class="concept__text">Opens on water rolling off the coat, so the product proves itself. Ends on a product card.</p>
+          </article>
+          <article class="concept" data-fx style="--fx-i:5">
+            <article class="ad"><video src="assets/demo-5.mp4" poster="assets/demo-5.jpg" muted loop playsinline preload="none" controls aria-label="Concept ad for a fictional brand. Hook: your whole house smells like wet dog. A wet beagle sits in a hallway, then walks through a puddle in a raincoat that wraps under the belly. It ends with a fit picker."></video></article>
+            <p class="concept__num label">Angle 05</p>
+            <h3 class="concept__title display">Daily problem</h3>
+            <p class="concept__text">Names a smell every owner knows, then shows the fix. Ends on a fit picker.</p>
+          </article>
+          <article class="concept" data-fx style="--fx-i:6">
+            <article class="ad"><video src="assets/demo-6.mp4" poster="assets/demo-6.jpg" muted loop playsinline preload="none" controls aria-label="Concept ad for a fictional brand. Hook: POV, it&#x27;s raining and he said no. A stubborn English bulldog refuses to go out, then struts through the rain in a yellow coat. It ends on a phone rain alert."></video></article>
+            <p class="concept__num label">Angle 06</p>
+            <h3 class="concept__title display">Humor</h3>
+            <p class="concept__text">A stubborn bulldog does the selling. Ends on a rain alert and a swipe.</p>
+          </article>
+        </div>
+        <div class="statics">
+          <header class="statics__head" data-fx>
+            <h3 class="statics__title display">And static ads, ready to run</h3>
+            <p class="statics__text">Six more concept products, 24 layouts. Each pilot includes 6 static ads for your own product.</p>
+          </header>
+          <div class="statics__grid" data-fx>
+            <img src="assets/static/s01.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: When did you last wash your dog&#x27;s collar?" loading="lazy" decoding="async"><img src="assets/static/s02.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Mud off. Smell off." loading="lazy" decoding="async"><img src="assets/static/s12.jpg" width="720" height="720" alt="Concept static ad for a fictional brand. Headline: Thirsty by mile one." loading="lazy" decoding="async"><img src="assets/static/s05.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Coffee. Phone. Dog." loading="lazy" decoding="async"><img src="assets/static/s17.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Your back seat is filing a complaint." loading="lazy" decoding="async"><img src="assets/static/s06.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: One leash. Every kind of walk." loading="lazy" decoding="async"><img src="assets/static/s20.jpg" width="720" height="1280" alt="Concept static ad for a fictional brand. Headline: Muddy paws welcome." loading="lazy" decoding="async"><img src="assets/static/s09.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: A water bowl. In your pocket." loading="lazy" decoding="async"><img src="assets/static/s13.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Your dog sleeps most of the day. On what?" loading="lazy" decoding="async"><img src="assets/static/s24.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Good dog. Paid on time." loading="lazy" decoding="async"><img src="assets/static/s10.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Walk checklist" loading="lazy" decoding="async"><img src="assets/static/s19.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Road trip. Clean seat." loading="lazy" decoding="async">
+          </div>
+          <details class="statics__more">
+            <summary>See 12 more</summary>
+            <div class="statics__grid">
+              <img src="assets/static/s03.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Your old collar has been holding on to things." loading="lazy" decoding="async"><img src="assets/static/s04.jpg" width="720" height="720" alt="Concept static ad for a fictional brand. Headline: Rinse. Dry. Repeat." loading="lazy" decoding="async"><img src="assets/static/s07.jpg" width="720" height="720" alt="Concept static ad for a fictional brand. Headline: Both hands free. Every walk." loading="lazy" decoding="async"><img src="assets/static/s08.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: 3 ways to wear it" loading="lazy" decoding="async"><img src="assets/static/s11.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Small bottle. Big thirst." loading="lazy" decoding="async"><img src="assets/static/s14.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: One of these goes in the wash." loading="lazy" decoding="async"><img src="assets/static/s15.jpg" width="720" height="1280" alt="Concept static ad for a fictional brand. Headline: Do not disturb." loading="lazy" decoding="async"><img src="assets/static/s16.jpg" width="720" height="720" alt="Concept static ad for a fictional brand. Headline: 3 reasons to replace it" loading="lazy" decoding="async"><img src="assets/static/s18.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Things your dog ruined this month" loading="lazy" decoding="async"><img src="assets/static/s21.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: How many treats are in your washing machine?" loading="lazy" decoding="async"><img src="assets/static/s22.jpg" width="720" height="720" alt="Concept static ad for a fictional brand. Headline: One hand. One snap. Good dog." loading="lazy" decoding="async"><img src="assets/static/s23.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Training pays better on time." loading="lazy" decoding="async">
+            </div>
+          </details>
+        </div>
+        <div class="fcta" data-fx>
+          <a class="hero__cta hero__cta--solid" href="#start">
+            <span class="hero__ctaLabel">Start the $490 pilot</span>
+            <span class="hero__ctaIcon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" focusable="false"><path d="M5 12h13m0 0-5-5m5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+          <p class="fcta__note">Your own product, your own ads, in 7 days.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="fsec standards" id="standards" aria-labelledby="standards-title">
+      <div class="container fsec__inner">
+        <header class="fsec__head" data-fx>
+          <p class="fsec__kicker label"><span class="fsec__rule" aria-hidden="true"></span><span>Our standards</span></p>
+          <h2 class="fsec__title display" id="standards-title">Made with AI. Checked by a person.</h2>
+        </header>
+        <p class="concepts__intro" data-fx>We study your product and your reviews, start from your real photos, and check every ad against a written list before you see it.</p>
+
+        <div class="offer__steps rules" data-fx>
+          <h3 class="offer__stepsTitle label">Rules we don't break</h3>
+          <ol class="offer__stepsList">
+            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">01</span><span class="offer__stepText"><strong>No fake customers.</strong> We never invent reviews, testimonials or real-looking buyers.</span></li>
+            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">02</span><span class="offer__stepText"><strong>Your product as it is.</strong> We never make it look better than what arrives.</span></li>
+            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">03</span><span class="offer__stepText"><strong>No unproven claims.</strong> A claim only appears if you can back it up.</span></li>
+            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">04</span><span class="offer__stepText"><strong>Open about AI.</strong> We tell you how it's used. If you don't want it, we'll say whether we can still help.</span></li>
+          </ol>
         </div>
       </div>
     </section>
@@ -233,7 +269,7 @@
       <div class="stages__inner container">
         <header class="stages__head">
           <p class="stages__kicker label"><span class="stages__rule" aria-hidden="true"></span><span>How it works</span></p>
-          <h2 id="stages-title" class="stages__title display">From brief to ads, with no calls</h2>
+          <h2 id="stages-title" class="stages__title display">Four steps. No calls.</h2>
           <p class="stages__count label" aria-hidden="true"><span class="stages__countDash"></span><span class="stages__countNum">04</span></p>
         </header>
         <div class="stages__list">
@@ -241,40 +277,47 @@
           <span class="stages__railHead" aria-hidden="true"></span>
 
           <article class="stages__item is-open" data-stage="0" style="--stages-i:0">
-            <h3 class="stages__heading"><button type="button" id="stages-head-0" class="stages__button" aria-expanded="true" aria-controls="stages-panel-0"><span class="stages__node" aria-hidden="true"></span><span class="stages__num" aria-hidden="true">01</span><span class="stages__name">Send your brief</span><span class="stages__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" focusable="false"><path d="M12 5.5v13M5.5 12h13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></button></h3>
+            <h3 class="stages__heading"><button type="button" id="stages-head-0" class="stages__button" aria-expanded="true" aria-controls="stages-panel-0"><span class="stages__node" aria-hidden="true"></span><span class="stages__num" aria-hidden="true">01</span><span class="stages__name">Tell us your product</span><span class="stages__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" focusable="false"><path d="M12 5.5v13M5.5 12h13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></button></h3>
             <div class="stages__panel" id="stages-panel-0" role="region" aria-labelledby="stages-head-0"><div class="stages__clip"><div class="stages__card">
               <span class="stages__glyphWrap" aria-hidden="true"><svg class="stages__glyph" viewBox="0 0 48 48" focusable="false"><rect pathLength="1" x="5.5" y="7.5" width="37" height="31" rx="2.5"/><path pathLength="1" d="M5.5 14.5h37"/><path pathLength="1" d="M12 22h24"/><path pathLength="1" d="M12 28h16"/></svg></span>
-              <div class="stages__body"><p class="stages__text">Fill in the short form with your brand, your product and what the ads should do. It takes about 3 minutes.</p>
-                <div class="stages__tools"><span class="stages__toolsLabel label">You share</span><ul class="stages__toolsList"><li class="stages__tool" style="--tool-i:0">Website</li><li class="stages__tool" style="--tool-i:1">Product</li><li class="stages__tool" style="--tool-i:2">Budget range</li></ul></div></div>
+              <div class="stages__body"><p class="stages__text">Leave your email and the link to your product. It takes 30 seconds.</p>
+                <div class="stages__tools"><span class="stages__toolsLabel label">You share</span><ul class="stages__toolsList"><li class="stages__tool" style="--tool-i:0">Email</li><li class="stages__tool" style="--tool-i:1">Product link</li></ul></div></div>
             </div></div></div>
           </article>
 
           <article class="stages__item" data-stage="1" style="--stages-i:1">
-            <h3 class="stages__heading"><button type="button" id="stages-head-1" class="stages__button" aria-expanded="false" aria-controls="stages-panel-1"><span class="stages__node" aria-hidden="true"></span><span class="stages__num" aria-hidden="true">02</span><span class="stages__name">Get a written proposal</span><span class="stages__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" focusable="false"><path d="M12 5.5v13M5.5 12h13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></button></h3>
+            <h3 class="stages__heading"><button type="button" id="stages-head-1" class="stages__button" aria-expanded="false" aria-controls="stages-panel-1"><span class="stages__node" aria-hidden="true"></span><span class="stages__num" aria-hidden="true">02</span><span class="stages__name">Pay the deposit</span><span class="stages__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" focusable="false"><path d="M12 5.5v13M5.5 12h13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></button></h3>
             <div class="stages__panel" id="stages-panel-1" role="region" aria-labelledby="stages-head-1"><div class="stages__clip"><div class="stages__card">
               <span class="stages__glyphWrap" aria-hidden="true"><svg class="stages__glyph" viewBox="0 0 48 48" focusable="false"><path pathLength="1" d="M7 8.5h22a3 3 0 0 1 3 3v9.5a3 3 0 0 1-3 3H17.5L11 29.5V24H7a3 3 0 0 1-3-3v-9.5a3 3 0 0 1 3-3Z"/><path pathLength="1" d="M10.5 14.5h15"/><path pathLength="1" d="M10.5 18.5h10"/><path pathLength="1" d="M26 28h15a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-3.5v4.5L32 40h-6a3 3 0 0 1-3-3v-6a3 3 0 0 1 3-3Z"/></svg></span>
-              <div class="stages__body"><p class="stages__text">We check that it's a fit and reply by email with the angles, the scope and an invoice. There's no call to book.</p>
-                <div class="stages__tools"><span class="stages__toolsLabel label">You get</span><ul class="stages__toolsList"><li class="stages__tool" style="--tool-i:0">Angles</li><li class="stages__tool" style="--tool-i:1">Scope</li><li class="stages__tool" style="--tool-i:2">Invoice</li></ul></div></div>
+              <div class="stages__body"><p class="stages__text">You get a secure payment link for $245, half the price. That reserves your spot. There's no call to book.</p>
+                <div class="stages__tools"><span class="stages__toolsLabel label">You pay</span><ul class="stages__toolsList"><li class="stages__tool" style="--tool-i:0">$245</li><li class="stages__tool" style="--tool-i:1">Secure link</li></ul></div></div>
             </div></div></div>
           </article>
 
           <article class="stages__item" data-stage="2" style="--stages-i:2">
-            <h3 class="stages__heading"><button type="button" id="stages-head-2" class="stages__button" aria-expanded="false" aria-controls="stages-panel-2"><span class="stages__node" aria-hidden="true"></span><span class="stages__num" aria-hidden="true">03</span><span class="stages__name">Pay the deposit, share your files</span><span class="stages__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" focusable="false"><path d="M12 5.5v13M5.5 12h13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></button></h3>
+            <h3 class="stages__heading"><button type="button" id="stages-head-2" class="stages__button" aria-expanded="false" aria-controls="stages-panel-2"><span class="stages__node" aria-hidden="true"></span><span class="stages__num" aria-hidden="true">03</span><span class="stages__name">Send your files</span><span class="stages__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" focusable="false"><path d="M12 5.5v13M5.5 12h13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></button></h3>
             <div class="stages__panel" id="stages-panel-2" role="region" aria-labelledby="stages-head-2"><div class="stages__clip"><div class="stages__card">
               <span class="stages__glyphWrap" aria-hidden="true"><svg class="stages__glyph" viewBox="0 0 48 48" focusable="false"><rect pathLength="1" x="6.5" y="6.5" width="35" height="35" rx="3"/><path pathLength="1" d="M24 6.5v35"/><path pathLength="1" d="M6.5 24H24"/><circle pathLength="1" cx="33" cy="16" r="4.5"/><path pathLength="1" d="M29 31.5h8"/></svg></span>
-              <div class="stages__body"><p class="stages__text">You pay 50% and send your real product photos, videos and brand guide. The 7 days start when we have everything.</p>
-                <div class="stages__tools"><span class="stages__toolsLabel label">You share</span><ul class="stages__toolsList"><li class="stages__tool" style="--tool-i:0">Photos</li><li class="stages__tool" style="--tool-i:1">Videos</li><li class="stages__tool" style="--tool-i:2">Brand guide</li></ul></div></div>
+              <div class="stages__body"><p class="stages__text">Share your real product photos, videos and logo. We confirm the angles by email, and the 7 days start.</p>
+                <div class="stages__tools"><span class="stages__toolsLabel label">You share</span><ul class="stages__toolsList"><li class="stages__tool" style="--tool-i:0">Photos</li><li class="stages__tool" style="--tool-i:1">Videos</li><li class="stages__tool" style="--tool-i:2">Logo</li></ul></div></div>
             </div></div></div>
           </article>
 
           <article class="stages__item" data-stage="3" style="--stages-i:3">
-            <h3 class="stages__heading"><button type="button" id="stages-head-3" class="stages__button" aria-expanded="false" aria-controls="stages-panel-3"><span class="stages__node" aria-hidden="true"></span><span class="stages__num" aria-hidden="true">04</span><span class="stages__name">Review and launch</span><span class="stages__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" focusable="false"><path d="M12 5.5v13M5.5 12h13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></button></h3>
+            <h3 class="stages__heading"><button type="button" id="stages-head-3" class="stages__button" aria-expanded="false" aria-controls="stages-panel-3"><span class="stages__node" aria-hidden="true"></span><span class="stages__num" aria-hidden="true">04</span><span class="stages__name">Review, then pay the rest</span><span class="stages__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" focusable="false"><path d="M12 5.5v13M5.5 12h13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></button></h3>
             <div class="stages__panel" id="stages-panel-3" role="region" aria-labelledby="stages-head-3"><div class="stages__clip"><div class="stages__card">
               <span class="stages__glyphWrap" aria-hidden="true"><svg class="stages__glyph" viewBox="0 0 48 48" focusable="false"><rect pathLength="1" x="14" y="4.5" width="20" height="39" rx="4"/><path pathLength="1" d="M21 9h6"/><rect pathLength="1" x="18" y="14" width="12" height="17" rx="1.5"/><circle pathLength="1" cx="24" cy="37.5" r="1.8"/></svg></span>
-              <div class="stages__body"><p class="stages__text">You review a preview, ask for one round of changes, pay the balance and receive the final files. You launch them yourself or with your media buyer.</p>
+              <div class="stages__body"><p class="stages__text">You see a preview and ask for one round of changes. Then you pay the other $245 and get your final files, ready to launch.</p>
                 <div class="stages__tools"><span class="stages__toolsLabel label">You get</span><ul class="stages__toolsList"><li class="stages__tool" style="--tool-i:0">9:16</li><li class="stages__tool" style="--tool-i:1">4:5</li><li class="stages__tool" style="--tool-i:2">1:1</li></ul></div></div>
             </div></div></div>
           </article>
+        </div>
+        <div class="fcta" data-fx>
+          <a class="hero__cta hero__cta--solid" href="#start">
+            <span class="hero__ctaLabel">Start the $490 pilot</span>
+            <span class="hero__ctaIcon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" focusable="false"><path d="M5 12h13m0 0-5-5m5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+          <p class="fcta__note">Start in 30 seconds. Pay only when you get your link.</p>
         </div>
       </div>
     </section>
@@ -291,9 +334,9 @@
             <span class="offer__glow" aria-hidden="true"></span>
             <p class="offer__brand label">Pilot</p>
             <p class="offer__amount"><span class="offer__num display">$490</span><span class="offer__per">one time</span></p>
-            <p class="offer__note">The easiest way to test us on one product.</p>
-            <a class="offer__cta" href="#contact" data-cursor><span>Start the pilot</span><span class="offer__ctaArrow" aria-hidden="true">→</span></a>
-            <div class="offer__pay"><span class="offer__payLabel label">Pay by</span><span class="offer__payPill">Bank transfer</span><span class="offer__payPill">50% to start</span></div>
+            <p class="offer__note">Pay $245 to start and $245 after your preview.</p>
+            <a class="offer__cta" href="#start"><span>Start the pilot</span><span class="offer__ctaArrow" aria-hidden="true">→</span></a>
+            <p class="offer__secure">Secure payment link by email. No call needed.</p>
           </div>
           <ul class="offer__list">
             <li class="offer__item" data-fx style="--fx-i:2"><span class="offer__check"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>6 short videos, 15 to 30 seconds each</span></li>
@@ -301,63 +344,20 @@
             <li class="offer__item" data-fx style="--fx-i:4"><span class="offer__check"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>2 product angles with 3 hooks each</span></li>
             <li class="offer__item" data-fx style="--fx-i:5"><span class="offer__check"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Ready for 9:16, 4:5 and 1:1 placements</span></li>
             <li class="offer__item" data-fx style="--fx-i:6"><span class="offer__check"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Ad copy for every creative and a simple test plan</span></li>
-            <li class="offer__item" data-fx style="--fx-i:7"><span class="offer__check"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>1 round of revisions</span></li>
+            <li class="offer__item" data-fx style="--fx-i:7"><span class="offer__check"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>1 round of changes, delivered in 7 days</span></li>
           </ul>
         </div>
 
-        <div class="offer__grid offer__grid--next">
-          <div class="offer__price offer__price--quiet theme-surface" data-fx>
-            <p class="offer__brand label">Monthly</p>
-            <p class="offer__amount"><span class="offer__num offer__num--long display">$1,500</span><span class="offer__per">per month</span></p>
-            <p class="offer__note">A steady flow of new ads once the pilot works for you.</p>
-            <a class="offer__cta offer__cta--ghost" href="#contact" data-cursor><span>Go monthly</span><span class="offer__ctaArrow" aria-hidden="true">→</span></a>
-          </div>
-          <ul class="offer__list">
-            <li class="offer__item" data-fx style="--fx-i:1"><span class="offer__check"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>12 short videos and 12 static images, in 2 batches</span></li>
-            <li class="offer__item" data-fx style="--fx-i:2"><span class="offer__check"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>New angles every month</span></li>
-            <li class="offer__item" data-fx style="--fx-i:3"><span class="offer__check"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>A report based on the numbers you share</span></li>
-            <li class="offer__item" data-fx style="--fx-i:4"><span class="offer__check"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Cancel with 30 days' notice</span></li>
-          </ul>
-        </div>
-
-        <div class="offer__steps" data-fx>
-          <h3 class="offer__stepsTitle label">What we need from you</h3>
+        <div class="offer__steps rules rules--3" data-fx>
+          <h3 class="offer__stepsTitle label">You're covered</h3>
           <ol class="offer__stepsList">
-            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">01</span><span class="offer__stepText">Real photos or videos of your product. Need new footage? We can add a real creator, quoted separately.</span></li>
-            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">02</span><span class="offer__stepText">Your logo, brand colors and fonts, so every ad looks like you.</span></li>
-            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">03</span><span class="offer__stepText">Proof for any claim you want to use, such as "vet approved" or "crash-tested".</span></li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <section class="fsec standards" id="standards" aria-labelledby="standards-title">
-      <div class="container fsec__inner">
-        <header class="fsec__head" data-fx>
-          <p class="fsec__kicker label"><span class="fsec__rule" aria-hidden="true"></span><span>Our standards</span></p>
-          <h2 class="fsec__title display" id="standards-title">Made with AI. Checked by a person.</h2>
-        </header>
-        <p class="concepts__intro" data-fx>AI speeds up production. The angle, the references and the final check stay with our studio, so your ads don't look like everything else in the feed.</p>
-
-        <div class="offer__steps rules" data-fx>
-          <h3 class="offer__stepsTitle label">How every ad is made</h3>
-          <ol class="offer__stepsList">
-            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">01</span><span class="offer__stepText"><strong>Research first.</strong> We study your product, your reviews and the ads running in your category before we write a script.</span></li>
-            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">02</span><span class="offer__stepText"><strong>Real references.</strong> Your product photos and licensed real-world images guide every shot.</span></li>
-            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">03</span><span class="offer__stepText"><strong>AI production.</strong> We generate the scenes and keep only the takes that look right.</span></li>
-            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">04</span><span class="offer__stepText"><strong>Edit and check.</strong> We cut and caption each ad, then check it against a written list before you see it.</span></li>
+            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">01</span><span class="offer__stepText"><strong>See it first.</strong> You get a preview and your changes before you pay the second half.</span></li>
+            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">02</span><span class="offer__stepText"><strong>Deadline or deposit back.</strong> If we miss the 7 days, you can ask for your deposit back.</span></li>
+            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">03</span><span class="offer__stepText"><strong>Not a fit? Full refund.</strong> If we can't take your product, we refund you before any work starts.</span></li>
           </ol>
         </div>
 
-        <div class="offer__steps rules" data-fx>
-          <h3 class="offer__stepsTitle label">Rules we don't break</h3>
-          <ol class="offer__stepsList">
-            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">01</span><span class="offer__stepText"><strong>No fake customers.</strong> We never invent reviews, testimonials or real-looking buyers.</span></li>
-            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">02</span><span class="offer__stepText"><strong>Your product as it is.</strong> We never make it look better than what arrives.</span></li>
-            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">03</span><span class="offer__stepText"><strong>No unproven claims.</strong> A claim only appears if you can back it up.</span></li>
-            <li class="offer__step"><span class="offer__stepNum display" aria-hidden="true">04</span><span class="offer__stepText"><strong>Open about AI.</strong> We tell you how it's used. If you don't want it, we'll say whether we can still help.</span></li>
-          </ol>
-        </div>
+        <p class="offer__next" data-fx><strong>After the pilot:</strong> 12 videos and 12 images a month for $1,500, with new angles and a report based on the numbers you share. Cancel with 30 days' notice. Start with the pilot and tell us if you want to continue.</p>
       </div>
     </section>
 
@@ -368,86 +368,74 @@
           <h2 class="fsec__title display" id="faq-title">You might be wondering</h2>
         </header>
         <div class="faq__list" id="faq-list"></div>
+        <div class="fcta" data-fx>
+          <a class="hero__cta hero__cta--solid" href="#start">
+            <span class="hero__ctaLabel">Start the $490 pilot</span>
+            <span class="hero__ctaIcon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" focusable="false"><path d="M5 12h13m0 0-5-5m5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+          <p class="fcta__note">Still unsure? Add your question in the note, we answer in writing.</p>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="contact contact--pre" aria-labelledby="contact-title">
+    <section id="start" class="contact contact--pre" aria-labelledby="contact-title">
       <span class="contact__glow" aria-hidden="true"></span>
       <div class="container contact__inner">
         <div class="contact__bar contact__anim" style="--contact-i:0">
-          <span class="contact__kicker label">Ready?</span>
+          <span class="contact__kicker label">30 seconds</span>
           <span class="contact__barRule" aria-hidden="true"></span>
-          <span class="contact__status"><span class="contact__statusDot" aria-hidden="true"></span><span class="contact__statusText label">Pilot spots open</span></span>
+          <span class="contact__status"><span class="contact__statusText label">Pilot spots open</span></span>
         </div>
         <h2 class="contact__title display" id="contact-title">
-          <span class="contact__line"><span id="contact-top" class="contact__word contact__anim" style="--contact-i:1">Send your</span></span>
-          <span class="contact__line contact__line--bottom"><span id="contact-bottom" class="contact__word contact__word--outline outline contact__anim" style="--contact-i:2">brief</span><span class="contact__trail contact__anim" style="--contact-i:3" aria-hidden="true"><span class="contact__trailRule"></span><span class="contact__trailArrow">↘</span></span></span>
+          <span class="contact__line"><span id="contact-top" class="contact__word contact__anim" style="--contact-i:1">Start your</span></span>
+          <span class="contact__line contact__line--bottom"><span id="contact-bottom" class="contact__word contact__word--outline outline contact__anim" style="--contact-i:2">pilot</span><span class="contact__trail contact__anim" style="--contact-i:3" aria-hidden="true"><span class="contact__trailRule"></span><span class="contact__trailArrow">↘</span></span></span>
         </h2>
 
         <div class="brief">
           <form id="brief-form" class="brief__form contact__anim" style="--contact-i:4" name="brief" method="POST" data-netlify="true" netlify-honeypot="company_url" novalidate>
             <input type="hidden" name="form-name" value="brief">
+            <input type="hidden" name="plan" value="Pilot $490">
             <p class="brief__honeypot"><label>Leave this field empty <input name="company_url" tabindex="-1" autocomplete="off"></label></p>
             <div class="brief__grid">
-              <div class="field">
-                <label class="label" for="name">Your name</label>
-                <input id="name" name="name" type="text" autocomplete="name" placeholder="Jordan Lee" required>
-                <p class="field__error" id="name-error" hidden>Please enter your name.</p>
-              </div>
               <div class="field">
                 <label class="label" for="email">Work email</label>
                 <input id="email" name="email" type="email" autocomplete="email" placeholder="jordan@yourbrand.com" required>
                 <p class="field__error" id="email-error" hidden>Please enter a valid email address.</p>
               </div>
               <div class="field">
-                <label class="label" for="brand">Brand name</label>
-                <input id="brand" name="brand" type="text" autocomplete="organization" placeholder="Your brand" required>
-                <p class="field__error" id="brand-error" hidden>Please enter your brand name.</p>
-              </div>
-              <div class="field">
-                <label class="label" for="website">Website</label>
-                <input id="website" name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourbrand.com" required>
-                <p class="field__error" id="website-error" hidden>Please enter your website, for example yourbrand.com.</p>
-              </div>
-              <div class="field">
-                <label class="label" for="product">Product to promote</label>
-                <input id="product" name="product" type="text" placeholder="No-pull harness" required>
-                <p class="field__error" id="product-error" hidden>Please name one product to start with.</p>
-              </div>
-              <div class="field">
-                <label class="label" for="spend">Monthly Meta ad budget</label>
-                <select id="spend" name="spend" required>
-                  <option value="">Choose a range</option>
-                  <option>Under $3,000</option>
-                  <option>$3,000 to $10,000</option>
-                  <option>$10,000 to $30,000</option>
-                  <option>Over $30,000</option>
-                  <option>Prefer not to say</option>
-                </select>
-                <p class="field__error" id="spend-error" hidden>Please choose an option.</p>
+                <label class="label" for="product">Link to your product</label>
+                <input id="product" name="product" type="text" inputmode="url" autocomplete="url" placeholder="yourbrand.com/products/harness" required>
+                <p class="field__error" id="product-error" hidden>Please paste a link, for example yourbrand.com/products/harness.</p>
               </div>
               <div class="field field--full">
-                <label class="label" for="goal">What should these ads do? (optional)</label>
-                <textarea id="goal" name="goal" rows="4" placeholder="Launch a new product, refresh tired ads, test video for the first time..."></textarea>
+                <label class="label" for="note">Anything we should know? (optional)</label>
+                <textarea id="note" name="note" rows="2" placeholder="A launch date, a question, what you've tried..."></textarea>
               </div>
             </div>
-            <button class="contact__mailto brief__submit" type="submit" id="brief-submit" data-cursor>
-              <span class="contact__mailtoFill" aria-hidden="true"></span>
-              <span class="contact__mailtoText" id="brief-submit-label">Send my brief</span>
-              <span class="contact__mailtoArrow" aria-hidden="true"><span class="contact__mailtoArrowGlyph">→</span><span class="contact__mailtoArrowGlyph">→</span></span>
+            <button class="hero__cta hero__cta--solid brief__submit" type="submit" id="brief-submit">
+              <span class="hero__ctaLabel" id="brief-submit-label">Reserve my pilot</span>
+              <span class="hero__ctaIcon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" focusable="false"><path d="M5 12h13m0 0-5-5m5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
-            <p class="brief__note">We only use these details to reply about your project. See our <a href="terms.html#privacy">privacy note</a>.</p>
+            <p class="brief__note"><span id="brief-next">No payment on this page. Next, you get a secure link for your $245 deposit.</span> We only use these details for your project. See our <a href="terms.html#privacy">privacy note</a>.</p>
             <div class="brief__status" id="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
           </form>
 
-          <aside class="contact__col brief__next contact__anim" style="--contact-i:5" aria-labelledby="next-title">
-            <h3 class="contact__colTitle label" id="next-title">What happens next</h3>
-            <ul class="contact__list">
-              <li class="contact__row"><span class="contact__item">We reply by email within 2 business days</span></li>
-              <li class="contact__row"><span class="contact__item">You get a written proposal, with no call to book</span></li>
-              <li class="contact__row"><span class="contact__item">You pay only if you accept it</span></li>
-              <li class="contact__row"><a class="contact__item" href="mailto:hello@pawadstudio.com" data-cursor><span class="contact__itemText">hello@pawadstudio.com</span><span class="contact__itemArrow" aria-hidden="true">↗</span></a></li>
+          <aside class="order contact__anim" style="--contact-i:5" aria-labelledby="order-title">
+            <h3 class="order__title label" id="order-title">Your order</h3>
+            <p class="order__name">Pilot ad pack</p>
+            <ul class="order__items">
+              <li>6 short videos and 6 static images</li>
+              <li>2 angles with 3 hooks each</li>
+              <li>Ad copy and a test plan</li>
+              <li>Delivered in 7 days</li>
             </ul>
+            <dl class="order__totals">
+              <div><dt>To start</dt><dd>$245</dd></div>
+              <div><dt>After your preview</dt><dd>$245</dd></div>
+              <div class="order__total"><dt>Total</dt><dd>$490</dd></div>
+            </dl>
+            <p class="order__fit">For dog accessory brands. We don't take food, supplements or health claims.</p>
+            <p class="order__fit">Questions? <a href="mailto:hello@pawadstudio.com">hello@pawadstudio.com</a></p>
           </aside>
         </div>
       </div>
@@ -456,28 +444,18 @@
 
   <footer class="footer theme-surface">
     <div class="container footer__inner">
-      <p class="footer__text">© <span class="footer__year">2026</span> Paw Ad Studio · <a href="terms.html">Terms and privacy</a></p>
-      <button type="button" class="footer__top" id="to-top" aria-label="Back to top" data-cursor>
+      <p class="footer__text">© <span class="footer__year">2026</span> Paw Ad Studio. <a href="terms.html">Terms and privacy</a></p>
+      <button type="button" class="footer__top" id="to-top" aria-label="Back to top">
         <span class="footer__topLabel">Back to top</span>
         <span class="footer__topIcon" aria-hidden="true"><span class="footer__topGlyph">↑</span><span class="footer__topGlyph">↑</span></span>
       </button>
     </div>
   </footer>
 
-  <a class="badge" href="#pricing" aria-label="Pilot spots open, 7-day delivery" data-cursor>
-    <span class="badge__ring" aria-hidden="true">
-      <svg viewBox="0 0 120 120" focusable="false">
-        <defs><path id="badge-path" d="M60,60 m-42,0 a42,42 0 1,1 84,0 a42,42 0 1,1 -84,0" fill="none"/></defs>
-        <text class="badge__text"><textPath href="#badge-path" startOffset="0" textLength="263.89" lengthAdjust="spacing">Pilot spots open · 7-day delivery · No calls ·</textPath></text>
-      </svg>
-    </span>
-    <span class="badge__star" aria-hidden="true">✦</span>
-  </a>
-
   <div class="sticky-join" id="sticky-join" data-shown="false" aria-hidden="true">
-    <a class="sticky-join__btn" href="#contact" tabindex="-1">
+    <a class="sticky-join__btn" href="#start" tabindex="-1">
       <span class="sticky-join__label">Start the $490 pilot</span>
-      <span class="sticky-join__price">7-day delivery · No calls</span>
+      <span class="sticky-join__price">7-day delivery, no calls</span>
     </a>
   </div>
 

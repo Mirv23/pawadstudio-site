@@ -20,13 +20,6 @@
   padding-block: calc(var(--header-h) + var(--sp-4)) var(--sp-6);
 }
 
-:root[data-theme="light"] .hero {
-  --hero-halo: color-mix(in oklab, var(--accent) 20%, transparent);
-  --hero-halo-2: color-mix(in oklab, var(--accent-2) 14%, transparent);
-  --hero-halo-opacity: .75;
-  --hero-edge: color-mix(in oklab, var(--ink) 16%, transparent);
-  --hero-frame-glow: 0 40px 110px -50px var(--glow);
-}
 
 .hero__inner {
   display: flex;
@@ -77,19 +70,6 @@
   text-transform: uppercase;
   letter-spacing: var(--tracking-label);
   color: var(--ink-2);
-}
-.hero__dot {
-  width: 7px;
-  height: 7px;
-  border-radius: var(--r-pill);
-  background: var(--accent);
-  box-shadow: 0 0 0 0 var(--glow);
-  animation: hero-pulse 2.4s var(--ease-soft) infinite;
-}
-@keyframes hero-pulse {
-  0%   { box-shadow: 0 0 0 0 var(--glow); }
-  70%  { box-shadow: 0 0 0 8px color-mix(in oklab, var(--accent) 0%, transparent); }
-  100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 0%, transparent); }
 }
 
 
@@ -248,41 +228,8 @@
   letter-spacing: var(--tracking-label);
   color: var(--ink-2);
 }
-.hero__price::before {
-  content: "";
-  flex: none;
-  width: 6px;
-  height: 6px;
-  border-radius: var(--r-pill);
-  background: var(--accent);
-}
 
 
-.hero__skills {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4px var(--sp-3);
-  margin-top: var(--sp-4);
-}
-.hero__skill {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-3);
-  font-family: var(--font-cond);
-  font-weight: 600;
-  font-size: var(--step--1);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-label);
-  color: var(--muted);
-}
-.hero__skill + .hero__skill::before {
-  content: "";
-  width: 4px;
-  height: 4px;
-  border-radius: var(--r-pill);
-  background: var(--accent);
-}
 
 
 .hero__anim {
@@ -303,7 +250,6 @@
 .hero--pre .hero__media   { transform: translateY(26px) scale(.985); --hero-d: .55s; }
 .hero--pre .hero__actions { --hero-d: .7s; }
 .hero--pre .hero__price   { --hero-d: .78s; }
-.hero--pre .hero__skills  { --hero-d: .86s; }
 
 
 @media (max-width: 719.98px) {
@@ -337,5 +283,4 @@
   .hero__cta:active,
   .hero__cta:hover .hero__ctaIcon,
   .hero__cta:focus-visible .hero__ctaIcon { transform: none !important; }
-  .hero__dot { animation: none !important; }
-}
+  }

@@ -18,12 +18,6 @@
   padding-block: var(--sp-6);
 }
 
-:root[data-theme="light"] .contact {
-  --contact-halo-a: color-mix(in oklab, var(--accent) 16%, transparent);
-  --contact-halo-b: color-mix(in oklab, var(--accent-2) 12%, transparent);
-  --contact-halo-opacity: .75;
-  --contact-edge: color-mix(in oklab, var(--accent) 26%, transparent);
-}
 
 
 .contact__glow {
@@ -87,14 +81,6 @@
 }
 
 
-.contact__statusDot {
-  flex: none;
-  width: 8px;
-  height: 8px;
-  border-radius: var(--r-pill);
-  background: var(--accent-solid);
-  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent);
-}
 
 
 .contact__title {
