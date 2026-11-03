@@ -3,7 +3,7 @@ const SITE_CONFIG = {
   // Laisser vide sur Netlify : le formulaire y est reçu automatiquement.
   // Ailleurs (Vercel, etc.), coller ici l'adresse d'un service de formulaire.
   formEndpoint: "",
-  contactEmail: "hello@pawadstudio.com",
+  contactEmail: "hello@mirvpaulletang.me",
   // Lien de paiement de l'acompte. Dès qu'il est rempli, le visiteur paie juste après le formulaire.
   // Laisser vide tant qu'aucun moyen de paiement n'est vérifié : le lien part alors par email.
   checkoutUrl: "",
@@ -11,7 +11,7 @@ const SITE_CONFIG = {
 
 const FAQ = [
   ["Do we need to get on a call?", "No. Everything happens in writing, from your first message to the final files."],
-  ["How do I pay?", "You get a secure payment link. You pay $245 to start and $245 after your preview. If you prefer payment protection, ask us about running the project through Upwork."],
+  ["How do I pay?", "You get a secure payment link. You pay $245 to start and $245 after your preview."],
   ["What if I don't like the ads?", "You see a preview before the second payment and get one round of changes. If we miss the 7-day deadline, you can ask for your deposit back."],
   ["What do you need from me?", "Real photos or videos of your product, your logo and colors, and proof for any claim you want to use. Need new footage? We can add a real creator, quoted separately."],
   ["Do you use AI?", "Yes. We use AI tools for scripts, background scenes, extra shots and variations. A person checks every ad before you see it. Meta may show an \"AI info\" label on some ads."],

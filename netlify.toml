@@ -1,0 +1,10 @@
+# Site statique : rien à construire, Netlify publie le dossier tel quel.
+[build]
+  publish = "."
+
+# Les vidéos et les visuels changent rarement : le navigateur les garde 7 jours,
+# ce qui économise la bande passante, donc les crédits.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
