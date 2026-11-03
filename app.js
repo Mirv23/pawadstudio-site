@@ -3,7 +3,7 @@ const SITE_CONFIG = {
   // Laisser vide sur Netlify : le formulaire y est reçu automatiquement.
   // Ailleurs (Vercel, etc.), coller ici l'adresse d'un service de formulaire.
   formEndpoint: "",
-  contactEmail: "hello@mirvpaulletang.me",
+  contactEmail: "mirvpaulletang@gmail.com",
   // Lien de paiement de l'acompte. Dès qu'il est rempli, le visiteur paie juste après le formulaire.
   // Laisser vide tant qu'aucun moyen de paiement n'est vérifié : le lien part alors par email.
   checkoutUrl: "",
