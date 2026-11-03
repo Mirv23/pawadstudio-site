@@ -11,7 +11,7 @@ const SITE_CONFIG = {
 
 const FAQ = [
   ["Do we need to get on a call?", "No. Everything happens in writing, from your first message to the final files."],
-  ["How do I pay?", "You get a secure payment link. You pay $245 to start and $245 after your preview."],
+  ["How do I pay?", "You get an invoice by email. You pay $245 to start and $245 after your preview, by international bank transfer in US dollars. If you use Wise, you can pay it from your Wise account."],
   ["What if I don't like the ads?", "You see a preview before the second payment and get one round of changes. If we miss the 7-day deadline, you can ask for your deposit back."],
   ["What do you need from me?", "Real photos or videos of your product, your logo and colors, and proof for any claim you want to use. Need new footage? We can add a real creator, quoted separately."],
   ["Do you use AI?", "Yes. We use AI tools for scripts, background scenes, extra shots and variations. A person checks every ad before you see it. Meta may show an \"AI info\" label on some ads."],
@@ -498,7 +498,7 @@ function initBriefForm() {
         pay.textContent = "Pay the $245 deposit";
         statusBox.append(pay);
       } else {
-        renderStatus("success", "Your spot is on hold", "Your secure $245 payment link is on its way by email, within 1 business day. Please check your spam folder if you don't see it.");
+        renderStatus("success", "Your spot is on hold", "Your $245 invoice is on its way by email, within 1 business day, with our bank details. Please check your spam folder if you don't see it.");
       }
     } catch {
       window.openEmailDraft(data);
