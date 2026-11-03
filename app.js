@@ -401,6 +401,335 @@ function initDemoVideos() {
   });
 }
 
+/* Exemples : statuts façon WhatsApp */
+function initStories() {
+  const viewer = document.getElementById("story-viewer");
+  const cards = [...document.querySelectorAll(".story")];
+  if (!viewer || !cards.length) return;
+
+  const IMAGE_MS = 5000;
+  const HOLD_MS = 220;
+  const $ = (selector) => viewer.querySelector(selector);
+  const ui = {
+    stage: $(".viewer__stage"),
+    bars: $(".viewer__bars"),
+    avatar: $(".viewer__avatar"),
+    name: $(".viewer__name"),
+    meta: $(".viewer__meta"),
+    title: $(".viewer__title"),
+    text: $(".viewer__text"),
+    mute: $('[data-act="mute"]'),
+    pause: $('[data-act="pause"]'),
+    close: $('[data-act="close"]'),
+    prevStory: $('[data-act="prev-story"]'),
+    nextStory: $('[data-act="next-story"]'),
+  };
+  const groups = cards.map((card) => ({
+    card,
+    row: card.closest(".stories__row"),
+    name: card.dataset.name,
+    avatar: card.querySelector(".story__avatar img").getAttribute("src"),
+    items: [...card.parentElement.querySelectorAll(".story__items li")].map((li) => ({ ...li.dataset })),
+  }));
+
+  // Comme WhatsApp : l'anneau devient gris une fois le statut vu.
+  let seen = new Set();
+  try { seen = new Set(JSON.parse(sessionStorage.getItem("paw-seen") || "[]")); } catch {}
+  groups.forEach((g) => g.card.classList.toggle("is-seen", seen.has(g.name)));
+  const markSeen = (g) => {
+    g.card.classList.add("is-seen");
+    seen.add(g.name);
+    try { sessionStorage.setItem("paw-seen", JSON.stringify([...seen])); } catch {}
+  };
+
+  let muted = false;
+  try { muted = localStorage.getItem("paw-muted") === "1"; } catch {}
+
+  let group = null;
+  let index = 0;
+  let media = null;
+  let paused = false;
+  let imageStart = 0;
+  let imageDone = 0;
+  let frameId = 0;
+  let imageTimer = 0;
+  let holdTimer = 0;
+  let held = false;
+  let pointer = null;
+  let suppressClick = false;
+  let lastFocus = null;
+  let heroPlaying = [];
+
+  const siblings = () => groups.filter((g) => g.row === group.row);
+
+  function progress() {
+    if (!media) return 0;
+    if (media.tagName === "VIDEO") return media.duration ? media.currentTime / media.duration : 0;
+    if (!media.complete) return 0;
+    return (imageDone + (paused ? 0 : performance.now() - imageStart)) / IMAGE_MS;
+  }
+
+  function setBars(value) {
+    [...ui.bars.children].forEach((bar, i) => {
+      const fill = i < index ? 1 : i > index ? 0 : Math.min(value, 1);
+      bar.firstChild.style.transform = `scaleX(${fill})`;
+    });
+  }
+
+  function tick() {
+    if (viewer.hidden) return;
+    setBars(progress());
+    frameId = requestAnimationFrame(tick);
+  }
+
+  // Le minuteur fait avancer les images, l'animation ne sert qu'à la barre.
+  function scheduleImage() {
+    clearTimeout(imageTimer);
+    if (media && media.tagName !== "VIDEO" && media.complete && !paused) {
+      imageTimer = setTimeout(next, Math.max(0, IMAGE_MS - imageDone));
+    }
+  }
+
+  function play(video) {
+    video.play().catch(() => {
+      // Le navigateur refuse le son : on relance en muet.
+      setMuted(true);
+      video.play().catch(() => {});
+    });
+  }
+
+  function setMuted(value) {
+    muted = value;
+    ui.mute.setAttribute("aria-pressed", String(muted));
+    ui.mute.setAttribute("aria-label", muted ? "Unmute" : "Mute");
+    if (media?.tagName === "VIDEO") media.muted = muted;
+    try { localStorage.setItem("paw-muted", muted ? "1" : "0"); } catch {}
+  }
+
+  function setPaused(value) {
+    if (media && media.tagName !== "VIDEO") {
+      if (value && !paused) imageDone += performance.now() - imageStart;
+      if (!value && paused) imageStart = performance.now();
+    }
+    paused = value;
+    ui.pause.setAttribute("aria-pressed", String(paused));
+    ui.pause.setAttribute("aria-label", paused ? "Play" : "Pause");
+    if (media?.tagName === "VIDEO") {
+      if (paused) media.pause();
+      else play(media);
+    } else if (paused) {
+      clearTimeout(imageTimer);
+    } else {
+      scheduleImage();
+    }
+  }
+
+  function clearMedia() {
+    clearTimeout(imageTimer);
+    if (media?.tagName === "VIDEO") {
+      media.pause();
+      media.removeAttribute("src");
+      media.load();
+    }
+    media = null;
+    ui.stage.replaceChildren();
+  }
+
+  function show(i) {
+    index = i;
+    const item = group.items[index];
+    clearMedia();
+    if (item.type === "video") {
+      const video = document.createElement("video");
+      video.className = "viewer__media";
+      video.src = item.src;
+      video.poster = item.poster;
+      video.muted = muted;
+      video.playsInline = true;
+      video.preload = "auto";
+      video.setAttribute("playsinline", "");
+      video.setAttribute("aria-label", item.alt);
+      video.addEventListener("ended", next);
+      ui.stage.append(video);
+      media = video;
+      if (!paused) play(video);
+    } else {
+      const blur = document.createElement("div");
+      blur.className = "viewer__blur";
+      blur.style.backgroundImage = `url("${item.src}")`;
+      const img = new Image();
+      img.className = "viewer__media";
+      img.alt = item.alt;
+      img.draggable = false;
+      img.addEventListener("load", () => {
+        imageDone = 0;
+        imageStart = performance.now();
+        scheduleImage();
+      });
+      img.src = item.src;
+      ui.stage.append(blur, img);
+      media = img;
+      imageDone = 0;
+      imageStart = performance.now();
+      const upcoming = group.items[index + 1];
+      if (upcoming?.type === "image") new Image().src = upcoming.src;
+    }
+    ui.title.textContent = item.title;
+    ui.text.textContent = item.text;
+    ui.meta.textContent = `Concept ad, not a client · ${index + 1}/${group.items.length}`;
+    ui.mute.hidden = item.type !== "video";
+    if (index === group.items.length - 1) markSeen(group);
+    setBars(0);
+  }
+
+  function openGroup(g, start = 0) {
+    group = g;
+    ui.bars.replaceChildren(...group.items.map(() => {
+      const bar = document.createElement("span");
+      bar.className = "viewer__bar";
+      bar.append(document.createElement("i"));
+      return bar;
+    }));
+    ui.avatar.src = group.avatar;
+    ui.name.textContent = group.name;
+    const list = siblings();
+    ui.prevStory.disabled = list.indexOf(group) === 0;
+    ui.nextStory.disabled = list.indexOf(group) === list.length - 1;
+    show(start);
+  }
+
+  function nextGroup() {
+    const list = siblings();
+    const pos = list.indexOf(group);
+    if (pos < list.length - 1) openGroup(list[pos + 1]);
+    else close();
+  }
+
+  function prevGroup() {
+    const list = siblings();
+    const pos = list.indexOf(group);
+    if (pos > 0) openGroup(list[pos - 1]);
+    else show(0);
+  }
+
+  function next() {
+    if (index < group.items.length - 1) show(index + 1);
+    else nextGroup();
+  }
+
+  function prev() {
+    if (index > 0) show(index - 1);
+    else prevGroup();
+  }
+
+  function open(g) {
+    lastFocus = document.activeElement;
+    heroPlaying = [...document.querySelectorAll(".adwall video")].filter((video) => !video.paused);
+    heroPlaying.forEach((video) => video.pause());
+    viewer.hidden = false;
+    document.body.style.overflow = "hidden";
+    paused = false;
+    setPaused(false);
+    setMuted(muted);
+    openGroup(g);
+    ui.close.focus();
+    cancelAnimationFrame(frameId);
+    frameId = requestAnimationFrame(tick);
+  }
+
+  function close() {
+    if (viewer.hidden) return;
+    cancelAnimationFrame(frameId);
+    clearTimeout(holdTimer);
+    clearMedia();
+    viewer.hidden = true;
+    document.body.style.overflow = "";
+    heroPlaying.forEach((video) => video.play().catch(() => {}));
+    lastFocus?.focus({ preventScroll: true });
+  }
+
+  groups.forEach((g) => g.card.addEventListener("click", () => open(g)));
+
+  // Appui long : pause. Glisser vers le bas : fermer. Glisser sur le côté : produit voisin.
+  viewer.querySelectorAll(".viewer__tap").forEach((tap) => {
+    tap.addEventListener("pointerdown", (event) => {
+      pointer = { x: event.clientX, y: event.clientY, wasPaused: paused };
+      clearTimeout(holdTimer);
+      holdTimer = setTimeout(() => {
+        held = true;
+        setPaused(true);
+      }, HOLD_MS);
+    });
+    tap.addEventListener("pointermove", (event) => {
+      if (pointer && Math.hypot(event.clientX - pointer.x, event.clientY - pointer.y) > 12) clearTimeout(holdTimer);
+    });
+    tap.addEventListener("pointerup", (event) => {
+      clearTimeout(holdTimer);
+      if (!pointer) return;
+      const dx = event.clientX - pointer.x;
+      const dy = event.clientY - pointer.y;
+      const wasHeld = held;
+      held = false;
+      if (wasHeld && !pointer.wasPaused) setPaused(false);
+      suppressClick = wasHeld || Math.hypot(dx, dy) > 40;
+      pointer = null;
+      if (dy > 90 && Math.abs(dy) > Math.abs(dx)) close();
+      else if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) nextGroup();
+        else prevGroup();
+      }
+    });
+    tap.addEventListener("pointercancel", () => {
+      clearTimeout(holdTimer);
+      if (held && pointer && !pointer.wasPaused) setPaused(false);
+      held = false;
+      pointer = null;
+    });
+  });
+
+  viewer.addEventListener("click", (event) => {
+    if (event.target === viewer) {
+      close();
+      return;
+    }
+    const action = event.target.closest("[data-act]")?.dataset.act;
+    if ((action === "prev" || action === "next") && suppressClick) {
+      suppressClick = false;
+      return;
+    }
+    if (action === "next") next();
+    else if (action === "prev") prev();
+    else if (action === "next-story") nextGroup();
+    else if (action === "prev-story") prevGroup();
+    else if (action === "pause") setPaused(!paused);
+    else if (action === "mute") setMuted(!muted);
+    else if (action === "close" || action === "cta") close();
+  });
+
+  viewer.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") close();
+    else if (event.key === "ArrowRight") next();
+    else if (event.key === "ArrowLeft") prev();
+    else if (event.key === "m" || event.key === "M") setMuted(!muted);
+    else if (event.key === "Tab") {
+      const focusables = [...viewer.querySelectorAll("button, a[href]")].filter((el) => !el.disabled && el.offsetParent !== null);
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden && !viewer.hidden) setPaused(true);
+  });
+}
+
 /* Formulaire de brief */
 function initBriefForm() {
   const form = document.getElementById("brief-form");
@@ -538,5 +867,6 @@ initServiceCards();
 initContactTitle();
 initStickyBar();
 initDemoVideos();
+initStories();
 initBriefForm();
 initFooter();

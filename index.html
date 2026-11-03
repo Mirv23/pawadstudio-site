@@ -181,59 +181,126 @@
           <p class="fsec__kicker label"><span class="fsec__rule" aria-hidden="true"></span><span>Examples</span></p>
           <h2 class="fsec__title display" id="concepts-title">Many products. Many angles.</h2>
         </header>
-        <p class="concepts__intro" data-fx>Concept ads for a made-up brand, Sample Pup Co., not a client. Six videos and 24 static ads across eight products. Made with AI and public-domain photos, then edited and checked in our studio. Turn the sound on.</p>
-        <div class="concepts__row">
-          <article class="concept" data-fx style="--fx-i:1">
-            <article class="ad"><video src="assets/demo-1.mp4" poster="assets/demo-1.jpg" muted loop playsinline preload="none" controls aria-label="Concept ad for a fictional brand. Hook: check behind your dog's front legs, right now. A golden retriever runs and shakes while the voice-over explains that soft padded mesh stays put. It ends with an add-to-cart animation."></video></article>
-            <p class="concept__num label">Angle 01</p>
-            <h3 class="concept__title display">Product demo</h3>
-            <p class="concept__text">Opens with a check owners can do right now, then shows the product. Ends on add to cart.</p>
-          </article>
-          <article class="concept" data-fx style="--fx-i:2">
-            <article class="ad"><video src="assets/demo-2.mp4" poster="assets/demo-2.jpg" muted loop playsinline preload="none" controls aria-label="Concept ad for a fictional brand. Hook: stop blaming your dog for pulling. The voice-over compares a back clip with a front clip on the chest, then says same dog, same street, a whole different walk. It ends with a size picker."></video></article>
-            <p class="concept__num label">Angle 02</p>
-            <h3 class="concept__title display">Problem and fix</h3>
-            <p class="concept__text">Takes the blame off the dog, then shows the fix. Claims must be backed by the brand. Ends on a size picker.</p>
-          </article>
-          <article class="concept" data-fx style="--fx-i:3">
-            <article class="ad"><video src="assets/demo-3.mp4" poster="assets/demo-3.jpg" muted loop playsinline preload="none" controls aria-label="Concept ad for a fictional brand. Hook: he waits 9 hours for this. A golden retriever sleeps, hears the keys, waits at the door and trots through the evening. It ends on a phone lock screen at 6:02."></video></article>
-            <p class="concept__num label">Angle 03</p>
-            <h3 class="concept__title display">Short story</h3>
-            <p class="concept__text">Builds an emotional moment first and brings the product in late. Ends on a phone lock screen.</p>
-          </article>
-          <article class="concept" data-fx style="--fx-i:4">
-            <article class="ad"><video src="assets/demo-4.mp4" poster="assets/demo-4.jpg" muted loop playsinline preload="none" controls aria-label="Concept ad for a fictional brand. Hook: watch the water, it doesn&#x27;t get in. Rain beads on a yellow dog raincoat, then a border collie trots through the rain and shakes it off. It ends on a product card and a buy button."></video></article>
-            <p class="concept__num label">Angle 04</p>
-            <h3 class="concept__title display">Proof on screen</h3>
-            <p class="concept__text">Opens on water rolling off the coat, so the product proves itself. Ends on a product card.</p>
-          </article>
-          <article class="concept" data-fx style="--fx-i:5">
-            <article class="ad"><video src="assets/demo-5.mp4" poster="assets/demo-5.jpg" muted loop playsinline preload="none" controls aria-label="Concept ad for a fictional brand. Hook: your whole house smells like wet dog. A wet beagle sits in a hallway, then walks through a puddle in a raincoat that wraps under the belly. It ends with a fit picker."></video></article>
-            <p class="concept__num label">Angle 05</p>
-            <h3 class="concept__title display">Daily problem</h3>
-            <p class="concept__text">Names a smell every owner knows, then shows the fix. Ends on a fit picker.</p>
-          </article>
-          <article class="concept" data-fx style="--fx-i:6">
-            <article class="ad"><video src="assets/demo-6.mp4" poster="assets/demo-6.jpg" muted loop playsinline preload="none" controls aria-label="Concept ad for a fictional brand. Hook: POV, it&#x27;s raining and he said no. A stubborn English bulldog refuses to go out, then struts through the rain in a yellow coat. It ends on a phone rain alert."></video></article>
-            <p class="concept__num label">Angle 06</p>
-            <h3 class="concept__title display">Humor</h3>
-            <p class="concept__text">A stubborn bulldog does the selling. Ends on a rain alert and a swipe.</p>
-          </article>
+        <p class="concepts__intro" data-fx>Concept ads for a made-up brand, Sample Pup Co., not a client. 6 videos and 24 static ads across 8 products, made with AI and public-domain photos, then edited and checked in our studio. Tap a product to watch its ads, like a status. Sound on.</p>
+        <div class="stories" data-fx>
+          <h3 class="stories__label label">Video ads</h3>
+          <ul class="stories__row">
+            <li class="stories__item">
+              <button class="story" type="button" data-name="The Everyday Harness" aria-haspopup="dialog" aria-label="Watch 3 videos for The Everyday Harness">
+                <img class="story__cover" src="assets/demo-1.jpg" alt="" loading="lazy" decoding="async">
+                <span class="story__avatar" style="--n:3"><img src="assets/stories/harnais.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span>
+                <span class="story__name">The Everyday Harness</span>
+                <span class="story__meta">3 videos</span>
+              </button>
+              <ol class="story__items" hidden>
+                <li data-type="video" data-src="assets/demo-1.mp4" data-poster="assets/demo-1.jpg" data-title="Product demo" data-text="Opens with a check owners can do right now, then shows the product. Ends on add to cart. 9:16 for Reels and Stories." data-alt="Concept ad for a fictional brand. Hook: check behind your dog&#x27;s front legs, right now. A golden retriever runs and shakes while the voice-over explains that soft padded mesh stays put. It ends with an add-to-cart animation."></li>
+                <li data-type="video" data-src="assets/demo-2.mp4" data-poster="assets/demo-2.jpg" data-title="Problem and fix" data-text="Takes the blame off the dog, then shows the fix. Claims must be backed by the brand. Ends on a size picker. 9:16 for Reels and Stories." data-alt="Concept ad for a fictional brand. Hook: stop blaming your dog for pulling. It compares a back clip with a front clip on the chest. It ends with a size picker."></li>
+                <li data-type="video" data-src="assets/demo-3.mp4" data-poster="assets/demo-3.jpg" data-title="Short story" data-text="Builds an emotional moment first and brings the product in late. Ends on a phone lock screen. 9:16 for Reels and Stories." data-alt="Concept ad for a fictional brand. Hook: he waits 9 hours for this. A golden retriever sleeps, hears the keys, waits at the door and trots through the evening. It ends on a phone lock screen at 6:02."></li>
+              </ol>
+            </li>
+            <li class="stories__item">
+              <button class="story" type="button" data-name="The Puddle Coat" aria-haspopup="dialog" aria-label="Watch 3 videos for The Puddle Coat">
+                <img class="story__cover" src="assets/demo-4.jpg" alt="" loading="lazy" decoding="async">
+                <span class="story__avatar" style="--n:3"><img src="assets/stories/manteau.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span>
+                <span class="story__name">The Puddle Coat</span>
+                <span class="story__meta">3 videos</span>
+              </button>
+              <ol class="story__items" hidden>
+                <li data-type="video" data-src="assets/demo-4.mp4" data-poster="assets/demo-4.jpg" data-title="Proof on screen" data-text="Opens on water rolling off the coat, so the product proves itself. Ends on a product card. 9:16 for Reels and Stories." data-alt="Concept ad for a fictional brand. Hook: watch the water, it doesn&#x27;t get in. Rain beads on a yellow dog raincoat, then a border collie trots through the rain and shakes it off. It ends on a product card and a buy button."></li>
+                <li data-type="video" data-src="assets/demo-5.mp4" data-poster="assets/demo-5.jpg" data-title="Daily problem" data-text="Names a smell every owner knows, then shows the fix. Ends on a fit picker. 9:16 for Reels and Stories." data-alt="Concept ad for a fictional brand. Hook: your whole house smells like wet dog. A wet beagle sits in a hallway, then walks through a puddle in a raincoat that wraps under the belly. It ends with a fit picker."></li>
+                <li data-type="video" data-src="assets/demo-6.mp4" data-poster="assets/demo-6.jpg" data-title="Humor" data-text="A stubborn bulldog does the selling. Ends on a rain alert and a swipe. 9:16 for Reels and Stories." data-alt="Concept ad for a fictional brand. Hook: POV, it&#x27;s raining and he said no. A stubborn English bulldog refuses to go out, then struts through the rain in a yellow coat. It ends on a phone rain alert."></li>
+              </ol>
+            </li>
+          </ul>
         </div>
-        <div class="statics">
-          <header class="statics__head" data-fx>
-            <h3 class="statics__title display">And static ads, ready to run</h3>
-            <p class="statics__text">Six more concept products, 24 layouts. Each pilot includes 6 static ads for your own product.</p>
-          </header>
-          <div class="statics__grid" data-fx>
-            <img src="assets/static/s01.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: When did you last wash your dog&#x27;s collar?" loading="lazy" decoding="async"><img src="assets/static/s02.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Mud off. Smell off." loading="lazy" decoding="async"><img src="assets/static/s12.jpg" width="720" height="720" alt="Concept static ad for a fictional brand. Headline: Thirsty by mile one." loading="lazy" decoding="async"><img src="assets/static/s05.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Coffee. Phone. Dog." loading="lazy" decoding="async"><img src="assets/static/s17.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Your back seat is filing a complaint." loading="lazy" decoding="async"><img src="assets/static/s06.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: One leash. Every kind of walk." loading="lazy" decoding="async"><img src="assets/static/s20.jpg" width="720" height="1280" alt="Concept static ad for a fictional brand. Headline: Muddy paws welcome." loading="lazy" decoding="async"><img src="assets/static/s09.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: A water bowl. In your pocket." loading="lazy" decoding="async"><img src="assets/static/s13.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Your dog sleeps most of the day. On what?" loading="lazy" decoding="async"><img src="assets/static/s24.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Good dog. Paid on time." loading="lazy" decoding="async"><img src="assets/static/s10.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Walk checklist" loading="lazy" decoding="async"><img src="assets/static/s19.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Road trip. Clean seat." loading="lazy" decoding="async">
-          </div>
-          <details class="statics__more">
-            <summary>See 12 more</summary>
-            <div class="statics__grid">
-              <img src="assets/static/s03.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Your old collar has been holding on to things." loading="lazy" decoding="async"><img src="assets/static/s04.jpg" width="720" height="720" alt="Concept static ad for a fictional brand. Headline: Rinse. Dry. Repeat." loading="lazy" decoding="async"><img src="assets/static/s07.jpg" width="720" height="720" alt="Concept static ad for a fictional brand. Headline: Both hands free. Every walk." loading="lazy" decoding="async"><img src="assets/static/s08.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: 3 ways to wear it" loading="lazy" decoding="async"><img src="assets/static/s11.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Small bottle. Big thirst." loading="lazy" decoding="async"><img src="assets/static/s14.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: One of these goes in the wash." loading="lazy" decoding="async"><img src="assets/static/s15.jpg" width="720" height="1280" alt="Concept static ad for a fictional brand. Headline: Do not disturb." loading="lazy" decoding="async"><img src="assets/static/s16.jpg" width="720" height="720" alt="Concept static ad for a fictional brand. Headline: 3 reasons to replace it" loading="lazy" decoding="async"><img src="assets/static/s18.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Things your dog ruined this month" loading="lazy" decoding="async"><img src="assets/static/s21.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: How many treats are in your washing machine?" loading="lazy" decoding="async"><img src="assets/static/s22.jpg" width="720" height="720" alt="Concept static ad for a fictional brand. Headline: One hand. One snap. Good dog." loading="lazy" decoding="async"><img src="assets/static/s23.jpg" width="720" height="900" alt="Concept static ad for a fictional brand. Headline: Training pays better on time." loading="lazy" decoding="async">
-            </div>
-          </details>
+        <div class="stories" data-fx>
+          <h3 class="stories__label label">Static ads</h3>
+          <ul class="stories__row">
+            <li class="stories__item">
+              <button class="story" type="button" data-name="The Rinse Collar" aria-haspopup="dialog" aria-label="Watch 4 static ads for The Rinse Collar">
+                <img class="story__cover" src="assets/static/s01.jpg" alt="" loading="lazy" decoding="async">
+                <span class="story__avatar" style="--n:4"><img src="assets/stories/collier.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span>
+                <span class="story__name">The Rinse Collar</span>
+                <span class="story__meta">4 static ads</span>
+              </button>
+              <ol class="story__items" hidden>
+                <li data-type="image" data-src="assets/static/s01.jpg" data-title="Question hook" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: When did you last wash your dog&#x27;s collar?"></li>
+                <li data-type="image" data-src="assets/static/s02.jpg" data-title="Product hero" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: Mud off. Smell off."></li>
+                <li data-type="image" data-src="assets/static/s03.jpg" data-title="Side by side" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: Your old collar has been holding on to things."></li>
+                <li data-type="image" data-src="assets/static/s04.jpg" data-title="Spec card" data-text="Static ad, 1:1 for the feed." data-alt="Concept static ad for a fictional brand. Headline: Rinse. Dry. Repeat."></li>
+              </ol>
+            </li>
+            <li class="stories__item">
+              <button class="story" type="button" data-name="The Two-Way Leash" aria-haspopup="dialog" aria-label="Watch 4 static ads for The Two-Way Leash">
+                <img class="story__cover" src="assets/static/s05.jpg" alt="" loading="lazy" decoding="async">
+                <span class="story__avatar" style="--n:4"><img src="assets/stories/laisse.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span>
+                <span class="story__name">The Two-Way Leash</span>
+                <span class="story__meta">4 static ads</span>
+              </button>
+              <ol class="story__items" hidden>
+                <li data-type="image" data-src="assets/static/s05.jpg" data-title="Product hero" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: Coffee. Phone. Dog."></li>
+                <li data-type="image" data-src="assets/static/s06.jpg" data-title="Feature callouts" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: One leash. Every kind of walk."></li>
+                <li data-type="image" data-src="assets/static/s07.jpg" data-title="Real photo" data-text="Static ad, 1:1 for the feed." data-alt="Concept static ad for a fictional brand. Headline: Both hands free. Every walk."></li>
+                <li data-type="image" data-src="assets/static/s08.jpg" data-title="Checklist" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: 3 ways to wear it"></li>
+              </ol>
+            </li>
+            <li class="stories__item">
+              <button class="story" type="button" data-name="The Pour Bottle" aria-haspopup="dialog" aria-label="Watch 4 static ads for The Pour Bottle">
+                <img class="story__cover" src="assets/static/s09.jpg" alt="" loading="lazy" decoding="async">
+                <span class="story__avatar" style="--n:4"><img src="assets/stories/bouteille.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span>
+                <span class="story__name">The Pour Bottle</span>
+                <span class="story__meta">4 static ads</span>
+              </button>
+              <ol class="story__items" hidden>
+                <li data-type="image" data-src="assets/static/s09.jpg" data-title="Product hero" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: A water bowl. In your pocket."></li>
+                <li data-type="image" data-src="assets/static/s10.jpg" data-title="Note style" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: Walk checklist"></li>
+                <li data-type="image" data-src="assets/static/s11.jpg" data-title="Spec card" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: Small bottle. Big thirst."></li>
+                <li data-type="image" data-src="assets/static/s12.jpg" data-title="Real photo" data-text="Static ad, 1:1 for the feed." data-alt="Concept static ad for a fictional brand. Headline: Thirsty by mile one."></li>
+              </ol>
+            </li>
+            <li class="stories__item">
+              <button class="story" type="button" data-name="The Cloud Bed" aria-haspopup="dialog" aria-label="Watch 4 static ads for The Cloud Bed">
+                <img class="story__cover" src="assets/static/s13.jpg" alt="" loading="lazy" decoding="async">
+                <span class="story__avatar" style="--n:4"><img src="assets/stories/lit.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span>
+                <span class="story__name">The Cloud Bed</span>
+                <span class="story__meta">4 static ads</span>
+              </button>
+              <ol class="story__items" hidden>
+                <li data-type="image" data-src="assets/static/s13.jpg" data-title="Question hook" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: Your dog sleeps most of the day. On what?"></li>
+                <li data-type="image" data-src="assets/static/s14.jpg" data-title="Side by side" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: One of these goes in the wash."></li>
+                <li data-type="image" data-src="assets/static/s15.jpg" data-title="Real photo" data-text="Static ad, 9:16 for Stories and Reels." data-alt="Concept static ad for a fictional brand. Headline: Do not disturb."></li>
+                <li data-type="image" data-src="assets/static/s16.jpg" data-title="Checklist" data-text="Static ad, 1:1 for the feed." data-alt="Concept static ad for a fictional brand. Headline: 3 reasons to replace it"></li>
+              </ol>
+            </li>
+            <li class="stories__item">
+              <button class="story" type="button" data-name="The Back Seat Hammock" aria-haspopup="dialog" aria-label="Watch 4 static ads for The Back Seat Hammock">
+                <img class="story__cover" src="assets/static/s17.jpg" alt="" loading="lazy" decoding="async">
+                <span class="story__avatar" style="--n:4"><img src="assets/stories/hamac.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span>
+                <span class="story__name">The Back Seat Hammock</span>
+                <span class="story__meta">4 static ads</span>
+              </button>
+              <ol class="story__items" hidden>
+                <li data-type="image" data-src="assets/static/s17.jpg" data-title="Product hero" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: Your back seat is filing a complaint."></li>
+                <li data-type="image" data-src="assets/static/s18.jpg" data-title="Note style" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: Things your dog ruined this month"></li>
+                <li data-type="image" data-src="assets/static/s19.jpg" data-title="Feature callouts" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: Road trip. Clean seat."></li>
+                <li data-type="image" data-src="assets/static/s20.jpg" data-title="Real photo" data-text="Static ad, 9:16 for Stories and Reels." data-alt="Concept static ad for a fictional brand. Headline: Muddy paws welcome."></li>
+              </ol>
+            </li>
+            <li class="stories__item">
+              <button class="story" type="button" data-name="The Snap Pouch" aria-haspopup="dialog" aria-label="Watch 4 static ads for The Snap Pouch">
+                <img class="story__cover" src="assets/static/s21.jpg" alt="" loading="lazy" decoding="async">
+                <span class="story__avatar" style="--n:4"><img src="assets/stories/pochette.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span>
+                <span class="story__name">The Snap Pouch</span>
+                <span class="story__meta">4 static ads</span>
+              </button>
+              <ol class="story__items" hidden>
+                <li data-type="image" data-src="assets/static/s21.jpg" data-title="Question hook" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: How many treats are in your washing machine?"></li>
+                <li data-type="image" data-src="assets/static/s22.jpg" data-title="Product hero" data-text="Static ad, 1:1 for the feed." data-alt="Concept static ad for a fictional brand. Headline: One hand. One snap. Good dog."></li>
+                <li data-type="image" data-src="assets/static/s23.jpg" data-title="Spec card" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: Training pays better on time."></li>
+                <li data-type="image" data-src="assets/static/s24.jpg" data-title="Real photo" data-text="Static ad, 4:5 for the feed." data-alt="Concept static ad for a fictional brand. Headline: Good dog. Paid on time."></li>
+              </ol>
+            </li>
+          </ul>
         </div>
         <div class="fcta" data-fx>
           <a class="hero__cta hero__cta--solid" href="#start">
@@ -451,6 +518,34 @@
       </button>
     </div>
   </footer>
+
+  <div class="viewer" id="story-viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-name" hidden>
+    <button type="button" class="viewer__nav" data-act="prev-story" aria-label="Previous product"><svg viewBox="0 0 24 24" width="22" height="22" focusable="false" aria-hidden="true"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div class="viewer__frame">
+      <div class="viewer__stage"></div>
+      <button type="button" class="viewer__tap viewer__tap--prev" data-act="prev" aria-label="Previous ad"></button>
+      <button type="button" class="viewer__tap viewer__tap--next" data-act="next" aria-label="Next ad"></button>
+      <div class="viewer__top">
+        <div class="viewer__bars"></div>
+        <div class="viewer__head">
+          <img class="viewer__avatar" src="assets/stories/harnais.webp" alt="" width="36" height="36">
+          <div class="viewer__who">
+            <p class="viewer__name" id="viewer-name"></p>
+            <p class="viewer__meta"></p>
+          </div>
+          <button type="button" class="viewer__btn" data-act="mute" aria-pressed="false" aria-label="Mute"><svg viewBox="0 0 24 24" width="22" height="22" focusable="false" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path class="viewer__sound" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path class="viewer__muted" d="m16 9 6 6m0-6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button type="button" class="viewer__btn" data-act="pause" aria-pressed="false" aria-label="Pause"><svg viewBox="0 0 24 24" width="22" height="22" focusable="false" aria-hidden="true"><path class="viewer__pauseIcon" d="M8 5v14M16 5v14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path class="viewer__playIcon" d="M7 5v14l12-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button type="button" class="viewer__btn" data-act="close" aria-label="Close"><svg viewBox="0 0 24 24" width="22" height="22" focusable="false" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+      <div class="viewer__foot">
+        <p class="viewer__title"></p>
+        <p class="viewer__text"></p>
+        <a class="viewer__cta" href="#start" data-act="cta"><span>Get ads like this for your product</span><svg viewBox="0 0 24 24" width="22" height="22" focusable="false" aria-hidden="true"><path d="M5 12h13m0 0-5-5m5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+    <button type="button" class="viewer__nav" data-act="next-story" aria-label="Next product"><svg viewBox="0 0 24 24" width="22" height="22" focusable="false" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
 
   <div class="sticky-join" id="sticky-join" data-shown="false" aria-hidden="true">
     <a class="sticky-join__btn" href="#start" tabindex="-1">
