@@ -401,6 +401,43 @@ function initDemoVideos() {
   });
 }
 
+/* Mur du hero sur téléphone : on part de la vidéo du centre et on suit celle qu'on amène au centre en glissant */
+function initHeroWall() {
+  const track = document.querySelector(".adwall__track");
+  if (!track) return;
+  const phone = window.matchMedia("(max-width: 719.98px)");
+  const visible = () => [...track.querySelectorAll(".ad")].filter((ad) => ad.offsetWidth > 0);
+
+  const markCenter = () => {
+    const middle = track.scrollLeft + track.clientWidth / 2;
+    let closest = null;
+    let best = Infinity;
+    visible().forEach((ad) => {
+      const distance = Math.abs(ad.offsetLeft + ad.offsetWidth / 2 - middle);
+      if (distance < best) {
+        best = distance;
+        closest = ad;
+      }
+    });
+    visible().forEach((ad) => ad.classList.toggle("is-center", ad === closest));
+  };
+
+  const setup = () => {
+    if (!phone.matches) return;
+    const center = track.querySelector(".ad--r0");
+    track.scrollLeft = center.offsetLeft + center.offsetWidth / 2 - track.clientWidth / 2;
+    markCenter();
+  };
+
+  let frame = 0;
+  track.addEventListener("scroll", () => {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(markCenter);
+  }, { passive: true });
+  phone.addEventListener("change", setup);
+  setup();
+}
+
 /* Exemples : statuts façon WhatsApp */
 function initStories() {
   const viewer = document.getElementById("story-viewer");
@@ -880,6 +917,7 @@ initServiceCards();
 initContactTitle();
 initStickyBar();
 initDemoVideos();
+initHeroWall();
 initStories();
 initBriefForm();
 initFooter();

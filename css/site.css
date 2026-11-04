@@ -27,15 +27,18 @@
 
 .adwall {
   position: relative;
+  padding: var(--sp-3);
+  background:
+    radial-gradient(70% 90% at 50% 0%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 70%),
+    var(--media-black);
+}
+.adwall__track {
+  position: relative;
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: .64fr .76fr .88fr 1fr .88fr .76fr .64fr;
   align-items: center;
   gap: var(--sp-2);
-  padding: var(--sp-3);
-  background:
-    radial-gradient(70% 90% at 50% 0%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 70%),
-    var(--media-black);
 }
 .adwall .ad { width: 100%; transition: opacity var(--dur-2, .3s) ease, transform var(--dur-2, .3s) ease; }
 .adwall .ad--r2 { opacity: .9; }
@@ -72,7 +75,7 @@
 .ad__open:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
 @media (min-width: 720px) and (max-width: 1099.98px) {
-  .adwall { grid-template-columns: .76fr .88fr 1fr .88fr .76fr; }
+  .adwall__track { grid-template-columns: .76fr .88fr 1fr .88fr .76fr; }
   .adwall .ad--r3 { display: none; }
 }
 
@@ -105,18 +108,31 @@
 .adwall__pause[aria-pressed="true"] .adwall__icon--pause { display: none; }
 .adwall__pause[aria-pressed="true"] .adwall__icon--play { display: block; }
 
-/* Téléphone : 3 vidéos, celle du centre en grand, les deux autres coupées par le bord */
+/* Téléphone : 3 vidéos, celle du centre en grand, les deux autres coupées par le bord.
+   On glisse à gauche ou à droite pour amener une vidéo au centre, en entier. */
 @media (max-width: 719.98px) {
   .hero__media { width: 100%; }
-  .adwall {
+  .adwall { padding: var(--sp-2) 0; }
+  .adwall__track {
     display: flex;
-    justify-content: center;
     gap: var(--sp-1);
-    padding: var(--sp-2) 0;
-    overflow: hidden;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
   }
-  .adwall .ad { flex: none; width: 48%; }
-  .adwall .ad--r1 { width: 40%; opacity: .85; }
+  .adwall__track::-webkit-scrollbar { display: none; }
+  /* Marges en début et en fin : la première et la dernière vidéo peuvent aussi venir au centre. */
+  .adwall__track::before,
+  .adwall__track::after { content: ""; flex: none; width: calc(26% - var(--sp-1)); }
+  .adwall .ad {
+    flex: none;
+    width: 48%;
+    scroll-snap-align: center;
+    transform: scale(.84);
+    opacity: .8;
+  }
+  .adwall .ad.is-center { transform: none; opacity: 1; }
   .adwall .ad--r2,
   .adwall .ad--r3 { display: none; }
   .adwall__pause { right: var(--sp-1); bottom: var(--sp-1); }
