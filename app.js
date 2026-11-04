@@ -580,6 +580,11 @@ function initStories() {
     ui.text.textContent = item.text;
     ui.meta.textContent = `Concept ad, not a client · ${index + 1}/${group.items.length}`;
     ui.mute.hidden = item.type !== "video";
+    // Les flèches parcourent les pubs une à une, puis passent au produit suivant.
+    const list = siblings();
+    const pos = list.indexOf(group);
+    ui.prevStory.disabled = pos === 0 && index === 0;
+    ui.nextStory.disabled = pos === list.length - 1 && index === group.items.length - 1;
     if (index === group.items.length - 1) markSeen(group);
     setBars(0);
   }
@@ -594,9 +599,6 @@ function initStories() {
     }));
     ui.avatar.src = group.avatar;
     ui.name.textContent = group.name;
-    const list = siblings();
-    ui.prevStory.disabled = list.indexOf(group) === 0;
-    ui.nextStory.disabled = list.indexOf(group) === list.length - 1;
     show(start);
   }
 
@@ -607,10 +609,10 @@ function initStories() {
     else close();
   }
 
-  function prevGroup() {
+  function prevGroup(atEnd = false) {
     const list = siblings();
     const pos = list.indexOf(group);
-    if (pos > 0) openGroup(list[pos - 1]);
+    if (pos > 0) openGroup(list[pos - 1], atEnd ? list[pos - 1].items.length - 1 : 0);
     else show(0);
   }
 
@@ -621,10 +623,10 @@ function initStories() {
 
   function prev() {
     if (index > 0) show(index - 1);
-    else prevGroup();
+    else prevGroup(true);
   }
 
-  function open(g) {
+  function open(g, start = 0) {
     lastFocus = document.activeElement;
     heroPlaying = [...document.querySelectorAll(".adwall video")].filter((video) => !video.paused);
     heroPlaying.forEach((video) => video.pause());
@@ -633,7 +635,7 @@ function initStories() {
     paused = false;
     setPaused(false);
     setMuted(muted);
-    openGroup(g);
+    openGroup(g, start);
     ui.close.focus();
     cancelAnimationFrame(frameId);
     frameId = requestAnimationFrame(tick);
@@ -651,6 +653,17 @@ function initStories() {
   }
 
   groups.forEach((g) => g.card.addEventListener("click", () => open(g)));
+
+  // Les vidéos du hero s'ouvrent aussi en statut, sur la bonne pub du bon produit.
+  document.querySelectorAll(".ad__open").forEach((button) => {
+    const src = button.dataset.src;
+    const g = groups.find((candidate) => candidate.items.some((item) => item.src === src));
+    if (!g) {
+      button.hidden = true;
+      return;
+    }
+    button.addEventListener("click", () => open(g, g.items.findIndex((item) => item.src === src)));
+  });
 
   // Appui long : pause. Glisser vers le bas : fermer. Glisser sur le côté : produit voisin.
   viewer.querySelectorAll(".viewer__tap").forEach((tap) => {
@@ -699,10 +712,8 @@ function initStories() {
       suppressClick = false;
       return;
     }
-    if (action === "next") next();
-    else if (action === "prev") prev();
-    else if (action === "next-story") nextGroup();
-    else if (action === "prev-story") prevGroup();
+    if (action === "next" || action === "next-story") next();
+    else if (action === "prev" || action === "prev-story") prev();
     else if (action === "pause") setPaused(!paused);
     else if (action === "mute") setMuted(!muted);
     else if (action === "close" || action === "cta") close();

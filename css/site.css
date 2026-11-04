@@ -14,8 +14,9 @@
 .hdr__logo { min-height: 44px; min-width: 44px; }
 .hdr__link::before { content: ""; position: absolute; inset: -7px 0; }
 
-/* Vidéos de démonstration */
-.hero__media { --hero-ar: 16 / 9; --hero-arn: 1.7778; }
+/* Vidéos de démonstration : 7 sur ordinateur, 5 sur tablette, 3 sur téléphone.
+   La hauteur vient de la largeur des vidéos, plus d'un ratio fixe. */
+.hero__media { --hero-ar: auto; width: min(100%, 1240px); }
 .hero__caption {
   position: relative;
   z-index: 1;
@@ -25,18 +26,55 @@
 }
 
 .adwall {
-  position: absolute;
-  inset: 0;
-  display: flex;
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: .64fr .76fr .88fr 1fr .88fr .76fr .64fr;
   align-items: center;
-  justify-content: center;
-  gap: var(--sp-3);
+  gap: var(--sp-2);
   padding: var(--sp-3);
   background:
     radial-gradient(70% 90% at 50% 0%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 70%),
     var(--media-black);
 }
-.adwall .ad { height: 100%; width: auto; flex: none; }
+.adwall .ad { width: 100%; transition: opacity var(--dur-2, .3s) ease, transform var(--dur-2, .3s) ease; }
+.adwall .ad--r2 { opacity: .9; }
+.adwall .ad--r3 { opacity: .75; }
+.adwall .ad:hover { opacity: 1; }
+
+/* Toute la vidéo s'ouvre en statut, avec le son */
+.ad__open {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: var(--sp-1);
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  color: var(--on-media);
+  cursor: pointer;
+}
+.ad__openIcon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-pill);
+  background: color-mix(in oklab, var(--media-black) 60%, transparent);
+  opacity: .85;
+  transition: transform .2s ease, background-color .2s ease;
+}
+.ad__open:hover .ad__openIcon,
+.ad__open:focus-visible .ad__openIcon { transform: scale(1.12); background: var(--accent); color: var(--ad-ink); }
+.ad__open:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+@media (min-width: 720px) and (max-width: 1099.98px) {
+  .adwall { grid-template-columns: .76fr .88fr 1fr .88fr .76fr; }
+  .adwall .ad--r3 { display: none; }
+}
 
 .ad {
   position: relative;
@@ -67,11 +105,36 @@
 .adwall__pause[aria-pressed="true"] .adwall__icon--pause { display: none; }
 .adwall__pause[aria-pressed="true"] .adwall__icon--play { display: block; }
 
+/* Téléphone : 3 vidéos, celle du centre en grand, les deux autres coupées par le bord */
 @media (max-width: 719.98px) {
-  .hero__media { --hero-ar: 4 / 5; --hero-arn: .8; width: min(100%, 340px); }
-  .adwall { padding: var(--sp-3); }
-  .adwall .ad--side { display: none; }
+  .hero__media { width: 100%; }
+  .adwall {
+    display: flex;
+    justify-content: center;
+    gap: var(--sp-1);
+    padding: var(--sp-2) 0;
+    overflow: hidden;
+  }
+  .adwall .ad { flex: none; width: 48%; }
+  .adwall .ad--r1 { width: 40%; opacity: .85; }
+  .adwall .ad--r2,
+  .adwall .ad--r3 { display: none; }
+  .adwall__pause { right: var(--sp-1); bottom: var(--sp-1); }
+
+  /* Le titre passe à la ligne au lieu de déborder, même avant le chargement de la police. */
+  .hero { --hero-title-size: clamp(40px, 15vw, 96px); }
+  .hero__title { max-width: 100%; }
+  .hero__line { white-space: normal; }
 }
+
+/* Si le script tarde ou échoue, le hero s'affiche quand même. */
+.hero--pre .hero__anim,
+.hero--pre .hero__word { animation: hero-failsafe 0s 2.5s forwards; }
+@keyframes hero-failsafe { to { opacity: 1; transform: none; } }
+
+/* Petits textes : jamais sous 12 px */
+:root { --step--1: clamp(12px, 0.65rem + 0.14vw, 13px); }
+.hdr-panel__link { min-height: 48px; }
 
 /* Exemples : statuts façon WhatsApp */
 .concepts__intro { max-width: 60ch; color: var(--ink-2); font-size: var(--step-1); line-height: 1.45; }
