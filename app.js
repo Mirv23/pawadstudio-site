@@ -428,6 +428,8 @@ function initStories() {
     card,
     row: card.closest(".stories__row"),
     name: card.dataset.name,
+    // Un même produit peut avoir un statut vidéo et un statut visuel : la clé tient compte de la rangée.
+    key: `${card.closest(".stories").querySelector(".stories__label").textContent}:${card.dataset.name}`,
     avatar: card.querySelector(".story__avatar img").getAttribute("src"),
     items: [...card.parentElement.querySelectorAll(".story__items li")].map((li) => ({ ...li.dataset })),
   }));
@@ -435,10 +437,10 @@ function initStories() {
   // Comme WhatsApp : l'anneau devient gris une fois le statut vu.
   let seen = new Set();
   try { seen = new Set(JSON.parse(sessionStorage.getItem("paw-seen") || "[]")); } catch {}
-  groups.forEach((g) => g.card.classList.toggle("is-seen", seen.has(g.name)));
+  groups.forEach((g) => g.card.classList.toggle("is-seen", seen.has(g.key)));
   const markSeen = (g) => {
     g.card.classList.add("is-seen");
-    seen.add(g.name);
+    seen.add(g.key);
     try { sessionStorage.setItem("paw-seen", JSON.stringify([...seen])); } catch {}
   };
 
